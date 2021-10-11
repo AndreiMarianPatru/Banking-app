@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaymentGateway.PublishedLanguage.Events
+﻿namespace PaymentGateway.PublishedLanguage.Events
 {
     public class ProductAdded
     {
@@ -13,7 +7,7 @@ namespace PaymentGateway.PublishedLanguage.Events
         public string Currency { get; set; }
         public int Limit { get; set; }
 
-        public ProductAdded(string name,double value,string currency,int limit)
+        public ProductAdded(string name, double value, string currency, int limit)
         {
             this.Name = name;
             this.Value = value;

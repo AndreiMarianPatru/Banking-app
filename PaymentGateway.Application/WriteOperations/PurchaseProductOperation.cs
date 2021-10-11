@@ -4,10 +4,7 @@ using PaymentGateway.Models;
 using PaymentGateway.PublishedLanguage.Events;
 using PaymentGateway.PublishedLanguage.WriteSide;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PaymentGateway.Application.WriteOperations
 {
@@ -26,7 +23,7 @@ namespace PaymentGateway.Application.WriteOperations
             var account = database.Accounts.FirstOrDefault(x => x.AccountID == operation.IdAccount);
             if (operation.Command != null)
             {
-                
+
                 foreach (var item in operation.Command.Details)
                 {
                     var product = database.Products.FirstOrDefault(x => x.Id == item.ProductId);
@@ -42,7 +39,7 @@ namespace PaymentGateway.Application.WriteOperations
             {
                 throw new Exception("Invalid Account");
             }
-            if(account.Balance<total)
+            if (account.Balance < total)
             {
                 throw new Exception("Insufficient funds");
             }
@@ -56,7 +53,7 @@ namespace PaymentGateway.Application.WriteOperations
             account.Balance -= transaction.Amount;
             foreach (var item in operation.Command.Details)
             {
-                
+
                 var product = database.Products.FirstOrDefault(x => x.Id == item.ProductId);
                 product.Limit -= item.Quantity;
                 var ptx = new ProductXTransaction();

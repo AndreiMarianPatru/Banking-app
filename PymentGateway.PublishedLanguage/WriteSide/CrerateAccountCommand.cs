@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaymentGateway.PublishedLanguage.WriteSide
+﻿namespace PaymentGateway.PublishedLanguage.WriteSide
 {
     public class CrerateAccountCommand
     {
@@ -17,7 +11,7 @@ namespace PaymentGateway.PublishedLanguage.WriteSide
         public double Limit { get; set; }
         public int AccountID { get; set; }
         public string OwnerCnp { get; set; }
-       
+
 
 
 

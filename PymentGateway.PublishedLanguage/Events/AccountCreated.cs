@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaymentGateway.PublishedLanguage.Events
+﻿namespace PaymentGateway.PublishedLanguage.Events
 {
     public class AccountCreated
     {
@@ -18,7 +12,7 @@ namespace PaymentGateway.PublishedLanguage.Events
         public string OwnerCnp { get; set; }
 
 
-        public AccountCreated(double balance, string currency, string ibanCode,string type,string status,double limit, int accountID,string ownerCnp)
+        public AccountCreated(double balance, string currency, string ibanCode, string type, string status, double limit, int accountID, string ownerCnp)
         {
             this.Balance = balance;
             this.Currency = currency;

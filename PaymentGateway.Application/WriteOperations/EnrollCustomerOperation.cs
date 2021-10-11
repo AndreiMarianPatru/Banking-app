@@ -1,9 +1,9 @@
 ﻿using PaymentGateway.Abstractions;
-using PaymentGateway.Models;
-using PaymentGateway.WriteSide;
 using PaymentGateway.Data;
-using System;
+using PaymentGateway.Models;
 using PaymentGateway.PublishedLanguage.Events;
+using PaymentGateway.WriteSide;
+using System;
 using System.Linq;
 
 namespace PaymentGateway.Application.WriteOperations

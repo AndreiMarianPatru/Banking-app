@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PaymentGateway.Models
 {
@@ -13,8 +9,8 @@ namespace PaymentGateway.Models
         {
             public int ProductId { get; set; }
             public double Quantity { get; set; }
-           // public bool RemoveFromPurchaseIfNotInStock { get; set; }
+            // public bool RemoveFromPurchaseIfNotInStock { get; set; }
         }
-        
+
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PaymentGateway.Models
+﻿namespace PaymentGateway.Models
 {
     public class Account
     {
@@ -14,7 +12,7 @@ namespace PaymentGateway.Models
 
         public string OwnerCnp { get; set; }
 
-        public Account(double balance, string currency, string IbanCode, string type, string status, double limit, int id,string ownerCnp)
+        public Account(double balance, string currency, string IbanCode, string type, string status, double limit, int id, string ownerCnp)
         {
             this.Balance = balance;
             this.Currency = currency;

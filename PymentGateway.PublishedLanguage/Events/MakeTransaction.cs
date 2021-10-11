@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PaymentGateway.PublishedLanguage.Events
 {
@@ -13,7 +9,7 @@ namespace PaymentGateway.PublishedLanguage.Events
         public string Currency { get; set; }
         public string Type { get; set; }
 
-        MakeTransaction(double amount,DateTime date,string currency,string type)
+        MakeTransaction(double amount, DateTime date, string currency, string type)
         {
             this.Amount = amount;
             this.Date = date;

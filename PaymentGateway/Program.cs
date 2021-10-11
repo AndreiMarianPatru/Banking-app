@@ -1,11 +1,9 @@
 ﻿using PaymentGateway.Abstractions;
 using PaymentGateway.Application.WriteOperations;
-using PaymentGateway.Data;
 using PaymentGateway.ExternalService;
 using PaymentGateway.Models;
 using PaymentGateway.PublishedLanguage.WriteSide;
 using PaymentGateway.WriteSide;
-using System;
 using System.Collections.Generic;
 using static PaymentGateway.Models.MultiplePurchaseCommand;
 
@@ -58,7 +56,7 @@ namespace PaymentGateway
             product1Op.PerformOperation(product1);
 
             MultiplePurchaseCommand purchase1 = new MultiplePurchaseCommand();
-            var items = new List<MultiplePurchaseCommand.CommandDetails>();
+            var items = new List<CommandDetails>();
             var item = new CommandDetails();
             item.ProductId = 1;
             item.Quantity = 2d;
@@ -72,10 +70,10 @@ namespace PaymentGateway
             PurchaseProductOperation purchase1Op = new PurchaseProductOperation(eventSender);
             purchase1Op.PerformOperation(purchase2);
 
-            Database db = Database.GetInstance();
-            
-            
-            //purchase1.Details= new List<MultiplePurchaseCommand.CommandDetails>
+
+
+
+
 
 
 

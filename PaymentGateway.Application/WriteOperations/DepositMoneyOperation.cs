@@ -25,7 +25,7 @@ namespace PaymentGateway.Application.WriteOperations
             {
                 throw new Exception("Account not found ");
             }
-            
+
 
             var transaction = new Transaction();
             transaction.Amount = operation.Ammount;

@@ -31,7 +31,7 @@ namespace PaymentGateway.Application.WriteOperations
             account.OwnerCnp = operation.OwnerCnp;
             database.Accounts.Add(account);
             database.SaveChange();
-            
+
             AccountCreated eventCreateAccount = new(operation.Balance, operation.Currency, operation.IbanCode, operation.Type, operation.Status, operation.Limit, operation.AccountID, operation.OwnerCnp);
             eventSender.SendEvent(eventCreateAccount);
         }
