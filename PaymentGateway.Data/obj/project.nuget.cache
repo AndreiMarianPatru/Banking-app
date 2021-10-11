@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nX1+s1qzF7M9NJjhwURmm82hnuRvciBS+d/8b1y190oT0TCFveeJqAPT7I+J6g13neazA+0Mlx93fl8n8Ux5/A==",
+  "dgSpecHash": "xy5OaGhX8oroqmgz/6MVXidiFJ5SJaJQPYt/fK5dwwbCBbO56GU+tdpTfVYtAPcIeLTMeh0KtJw6f/Iije9qwA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Data\\PaymentGateway.Data.csproj",
+  "projectFilePath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

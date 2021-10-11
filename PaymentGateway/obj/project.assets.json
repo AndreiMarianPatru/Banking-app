@@ -129,11 +129,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway\\PaymentGateway.csproj",
+      "projectUniqueName": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway\\PaymentGateway.csproj",
       "projectName": "PaymentGateway",
-      "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway\\PaymentGateway.csproj",
+      "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway\\PaymentGateway.csproj",
       "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway\\obj\\",
+      "outputPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -156,23 +156,23 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj"
             },
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Application\\PaymentGateway.Application.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Application\\PaymentGateway.Application.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Application\\PaymentGateway.Application.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Application\\PaymentGateway.Application.csproj"
             },
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Data\\PaymentGateway.Data.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Data\\PaymentGateway.Data.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj"
             },
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.ExternalService\\PaymentGateway.ExternalService.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.ExternalService\\PaymentGateway.ExternalService.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.ExternalService\\PaymentGateway.ExternalService.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.ExternalService\\PaymentGateway.ExternalService.csproj"
             },
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Models\\PaymentGateway.Models.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PaymentGateway.Models\\PaymentGateway.Models.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj"
             },
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj"
             }
           }
         }
