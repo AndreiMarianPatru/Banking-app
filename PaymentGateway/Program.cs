@@ -70,16 +70,6 @@ namespace PaymentGateway
             PurchaseProductOperation purchase1Op = new PurchaseProductOperation(eventSender);
             purchase1Op.PerformOperation(purchase2);
 
-
-
-
-
-
-
-
-
-
-
         }
     }
 }
