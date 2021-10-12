@@ -1,11 +1,13 @@
-﻿using PaymentGateway.Abstractions;
+﻿using Abstractions;
 using PaymentGateway.Application.WriteOperations;
+using PaymentGateway.Data;
 using PaymentGateway.ExternalService;
 using PaymentGateway.Models;
 using PaymentGateway.PublishedLanguage.WriteSide;
-using PaymentGateway.WriteSide;
+using System;
+using PaymentGateway.Application.ReadOperations;
+using PaymentGateway.PublishedLanguage.Events;
 using System.Collections.Generic;
-using static PaymentGateway.Models.MultiplePurchaseCommand;
 
 namespace PaymentGateway
 {
@@ -13,63 +15,102 @@ namespace PaymentGateway
     {
         static void Main(string[] args)
         {
-            EnrollCustomerCommand customer1 = new EnrollCustomerCommand();
-            customer1.Name = "Gigi";
-            customer1.Currency = "$";
-            customer1.Cnp = "5000118784512";
-            customer1.ClientType = "Individual";
-            customer1.AccountType = "Credit";
+            var account = new BankAccount();
+            account.Balance = 100;
+            Console.WriteLine(account.Balance);
 
-            IEventSender eventSender = new EventSender();
+            var enrollCustomer = new EnrollCustomer();
+            enrollCustomer.ClientType = "Company";
+            enrollCustomer.AccountType = "Debit";
+            enrollCustomer.Name = "Gigi Popa";
+            enrollCustomer.Valuta = "Eur";
+            enrollCustomer.UniqueIdentifier = "23";
+            var enrollCustomerOperation = new EnrollCustomerOperation(new EventSender());
+            enrollCustomerOperation.PerformOperation(enrollCustomer);
 
-            EnrollCustomerOperation enrollOp1 = new EnrollCustomerOperation(eventSender);
-            enrollOp1.PerformOperation(customer1);
+            var makeAccountDetails = new MakeNewAccount();
+            makeAccountDetails.UniqueIdentifier = "23";
+            makeAccountDetails.AccountType = "Debit";
+            makeAccountDetails.Valuta = "Eur";
+            var makeAccountOperation = new CreateAccount(new EventSender());
+            makeAccountOperation.PerformOperation(makeAccountDetails);
 
-            CrerateAccountCommand account1 = new CrerateAccountCommand();
-            account1.Currency = "RON";
-            account1.Limit = 1000000.00;
-            account1.Status = "Open";
-            account1.Type = "Current";
-            account1.OwnerCnp = "5000118784512";
 
-            CreateAccountOperation createacc1 = new CreateAccountOperation(eventSender);
-            createacc1.PerformOperation(account1);
+            var database = Database.GetInstance();
+            //foreach (var item in database.BankAccounts)
+            //{
+            //    Console.WriteLine(item.Iban); 
+            //}
 
-            DepositMoneyCommand deposit1 = new DepositMoneyCommand();
-            deposit1.AccountId = 1;
-            deposit1.Ammount = 1000;
-            DepositMoneyOperation depositop1 = new DepositMoneyOperation(eventSender);
-            depositop1.PerformOperation(deposit1);
 
-            WithdrawMoneyCommand withdraw1 = new WithdrawMoneyCommand();
-            withdraw1.AccountId = 1;
-            withdraw1.Ammount = 100;
-            WithdrawMoneyOperation withdrawOp1 = new WithdrawMoneyOperation(eventSender);
-            withdrawOp1.PerformOperation(withdraw1);
 
-            CreateProductCommand product1 = new CreateProductCommand();
-            product1.Name = "pc";
-            product1.Currency = "RON";
-            product1.Limit = 100;
-            product1.Value = 10;
-            CreateProductOperation product1Op = new CreateProductOperation(eventSender);
-            product1Op.PerformOperation(product1);
 
-            MultiplePurchaseCommand purchase1 = new MultiplePurchaseCommand();
-            var items = new List<CommandDetails>();
-            var item = new CommandDetails();
-            item.ProductId = 1;
-            item.Quantity = 2d;
-            items.Add(item);
-            purchase1.Details = items;
-            PurchaseProductCommand purchase2 = new PurchaseProductCommand();
-            purchase2.IdAccount = 1;
-            purchase2.Command = purchase1;
-            purchase2.Currency = "RON";
-            purchase2.Name = "pc";
-            PurchaseProductOperation purchase1Op = new PurchaseProductOperation(eventSender);
-            purchase1Op.PerformOperation(purchase2);
+
+            var depositDetails = new MakeNewDeposit();
+            depositDetails.Iban =(Int64.Parse( NewIban.GetNewIban())-1).ToString();
+            depositDetails.Cnp = "23";
+            depositDetails.Currency = "Eur";
+            depositDetails.Amount = 750;
+
+            var makeDeposit = new DepositMoney(new EventSender());
+            makeDeposit.PerformOperation(depositDetails);
+
+
+
+            var withdrawDetails = new MakeWithdraw();
+            withdrawDetails.Amount = 150;
+            withdrawDetails.Cnp = "23";
+            withdrawDetails.Iban= (Int64.Parse(NewIban.GetNewIban()) - 1).ToString();
+
+            var makeWithdraw = new WithdrawMoney(new EventSender());
+            makeWithdraw.PerformOperation(withdrawDetails);
+
+            var produs = new Product();
+            produs.ID = 1;
+            produs.Limit = 10;
+            produs.Name = "Pantofi";
+            produs.Currency = "Eur";
+            produs.Value = 10;
+
+            var produs1 = new Product();
+            produs1.ID = 2;
+            produs1.Limit = 5;
+            produs1.Name = "pantaloni";
+            produs1.Currency = "Eur";
+            produs1.Value = 5;
+
+            var produs2 = new Product();
+            produs2.ID = 3;
+            produs2.Limit = 3;
+            produs2.Name = "Camasa";
+            produs2.Currency = "Eur";
+            produs2.Value = 3;
+
+            database.Products.Add(produs);
+            database.Products.Add(produs1);
+            database.Products.Add(produs2);
+
+            var listaProduse = new List<CommandDetails>();
+
+            var prodCmd1 = new CommandDetails();
+            prodCmd1.idProd = 1;
+            prodCmd1.Quantity = 2;
+            listaProduse.Add(prodCmd1);
+
+            var prodCmd2 = new CommandDetails();
+            prodCmd2.idProd = 2;
+            prodCmd2.Quantity = 3;
+            listaProduse.Add(prodCmd2);
+
+            var comanda = new Command();
+            comanda.Details = listaProduse;
+            comanda.Iban = (Int64.Parse(NewIban.GetNewIban()) - 1).ToString();
+
+
 
         }
     }
 }
+
+/*
+ */

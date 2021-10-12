@@ -2,23 +2,22 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "PaymentGateway.Abstractions/1.0.0": {
+      "Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/PaymentGateway.Abstractions.dll": {}
+          "bin/placeholder/Abstractions.dll": {}
         },
         "runtime": {
-          "bin/placeholder/PaymentGateway.Abstractions.dll": {}
+          "bin/placeholder/Abstractions.dll": {}
         }
       },
       "PaymentGateway.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "PaymentGateway.Abstractions": "1.0.0",
+          "Abstractions": "1.0.0",
           "PaymentGateway.Data": "1.0.0",
-          "PaymentGateway.Models": "1.0.0",
           "PaymentGateway.PublishedLanguage": "1.0.0"
         },
         "compile": {
@@ -45,7 +44,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "PaymentGateway.Abstractions": "1.0.0"
+          "Abstractions": "1.0.0"
         },
         "compile": {
           "bin/placeholder/PaymentGateway.ExternalService.dll": {}
@@ -80,10 +79,10 @@
     }
   },
   "libraries": {
-    "PaymentGateway.Abstractions/1.0.0": {
+    "Abstractions/1.0.0": {
       "type": "project",
-      "path": "../PaymentGateway.Abstractions/PaymentGateway.Abstractions.csproj",
-      "msbuildProject": "../PaymentGateway.Abstractions/PaymentGateway.Abstractions.csproj"
+      "path": "../Abstractions/Abstractions.csproj",
+      "msbuildProject": "../Abstractions/Abstractions.csproj"
     },
     "PaymentGateway.Application/1.0.0": {
       "type": "project",
@@ -107,18 +106,15 @@
     },
     "PaymentGateway.PublishedLanguage/1.0.0": {
       "type": "project",
-      "path": "../PymentGateway.PublishedLanguage/PaymentGateway.PublishedLanguage.csproj",
-      "msbuildProject": "../PymentGateway.PublishedLanguage/PaymentGateway.PublishedLanguage.csproj"
+      "path": "../PaymentGateway.PublishedLanguage/PaymentGateway.PublishedLanguage.csproj",
+      "msbuildProject": "../PaymentGateway.PublishedLanguage/PaymentGateway.PublishedLanguage.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "PaymentGateway.Abstractions >= 1.0.0",
       "PaymentGateway.Application >= 1.0.0",
-      "PaymentGateway.Data >= 1.0.0",
       "PaymentGateway.ExternalService >= 1.0.0",
-      "PaymentGateway.Models >= 1.0.0",
-      "PaymentGateway.PublishedLanguage >= 1.0.0"
+      "PaymentGateway.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -140,6 +136,7 @@
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
+        "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\NuGet.Config",
         "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -149,30 +146,21 @@
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://incbnuget.appservice.online/nuget": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj"
-            },
             "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Application\\PaymentGateway.Application.csproj": {
               "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Application\\PaymentGateway.Application.csproj"
-            },
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj"
             },
             "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.ExternalService\\PaymentGateway.ExternalService.csproj": {
               "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.ExternalService\\PaymentGateway.ExternalService.csproj"
             },
             "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj": {
               "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj"
-            },
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj"
             }
           }
         }

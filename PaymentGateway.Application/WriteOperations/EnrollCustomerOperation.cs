@@ -1,51 +1,67 @@
-﻿using PaymentGateway.Abstractions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Abstractions;
+using PaymentGateway.Application.ReadOperations;
 using PaymentGateway.Data;
 using PaymentGateway.Models;
-using PaymentGateway.PublishedLanguage.Events;
-using PaymentGateway.WriteSide;
-using System;
-using System.Linq;
+using PaymentGateway.PublishedLanguage.WriteSide;
 
 namespace PaymentGateway.Application.WriteOperations
 {
-    public class EnrollCustomerOperation : IWriteOperations<EnrollCustomerCommand>
+    public class EnrollCustomerOperation : IWriteOperation<EnrollCustomer>
     {
         public IEventSender eventSender;
         public EnrollCustomerOperation(IEventSender eventSender)
         {
             this.eventSender = eventSender;
         }
-        public void PerformOperation(EnrollCustomerCommand operation)
+
+        public void PerformOperation(EnrollCustomer operation)
         {
-
-            //var Database = new Database();
             var random = new Random();
-            Database database = Database.GetInstance();
-            Person person = new Person();
-            person.Cnp = operation.Cnp;
-            person.Name = operation.Name;
-            //person.Type = operation.ClientType;
-            if (operation.ClientType == "Company")
-                person.Type = (int)PersonType.Company;
+
+            var database = Database.GetInstance();
+
+            var customer = new Person();
+            
+
+            customer.Cnp = operation.UniqueIdentifier;
+            customer.Name = operation.Name;
+            if(operation.ClientType=="Company")
+            {
+                customer.TypeOfPerson = PersonType.Company;
+            }
+
             else if (operation.ClientType == "Individual")
-                person.Type = (int)PersonType.Individual;
+            {
+                customer.TypeOfPerson = PersonType.Individual;
+            }
             else
-                throw new Exception("Unsupported Type");
+            {
+                throw new Exception("Unsupported person type");
+            }
 
+            database.Persons.Add(customer);
 
-            database.Persons.Add(person);
-
-            Account account = new Account();
+            var account = new BankAccount();
             account.Type = operation.AccountType;
-            account.Currency = operation.Currency;
+            account.Currency = operation.Valuta;
             account.Balance = 0;
-            account.IbanCode = random.Next(1000000).ToString();
-            account.AccountID = database.Accounts.Count() + 1;
-            database.Accounts.Add(account);
+            account.Iban = NewIban.GetNewIban();
 
-            database.SaveChange();
-            CustomerEnrolled eventCustEnroll = new(operation.Name, operation.Cnp, operation.ClientType);
-            eventSender.SendEvent(eventCustEnroll);
+            database.BankAccounts.Add(account);
+
+            database.SaveChanges();
+
+            EnrollCustomer ec = new EnrollCustomer();
+            ec.Name = customer.Name;
+            ec.UniqueIdentifier = customer.Cnp;
+            ec.ClientType = operation.ClientType;
+            eventSender.SendEvent(ec);
+
 
         }
     }

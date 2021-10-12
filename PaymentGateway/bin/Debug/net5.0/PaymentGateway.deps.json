@@ -8,27 +8,23 @@
     ".NETCoreApp,Version=v5.0": {
       "PaymentGateway/1.0.0": {
         "dependencies": {
-          "PaymentGateway.Abstractions": "1.0.0",
           "PaymentGateway.Application": "1.0.0",
-          "PaymentGateway.Data": "1.0.0",
           "PaymentGateway.ExternalService": "1.0.0",
-          "PaymentGateway.Models": "1.0.0",
-          "PaymentGateway.PublishedLanguage": "1.0.0"
+          "PaymentGateway.Models": "1.0.0"
         },
         "runtime": {
           "PaymentGateway.dll": {}
         }
       },
-      "PaymentGateway.Abstractions/1.0.0": {
+      "Abstractions/1.0.0": {
         "runtime": {
-          "PaymentGateway.Abstractions.dll": {}
+          "Abstractions.dll": {}
         }
       },
       "PaymentGateway.Application/1.0.0": {
         "dependencies": {
-          "PaymentGateway.Abstractions": "1.0.0",
+          "Abstractions": "1.0.0",
           "PaymentGateway.Data": "1.0.0",
-          "PaymentGateway.Models": "1.0.0",
           "PaymentGateway.PublishedLanguage": "1.0.0"
         },
         "runtime": {
@@ -45,7 +41,7 @@
       },
       "PaymentGateway.ExternalService/1.0.0": {
         "dependencies": {
-          "PaymentGateway.Abstractions": "1.0.0"
+          "Abstractions": "1.0.0"
         },
         "runtime": {
           "PaymentGateway.ExternalService.dll": {}
@@ -72,7 +68,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "PaymentGateway.Abstractions/1.0.0": {
+    "Abstractions/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

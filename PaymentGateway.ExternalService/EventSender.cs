@@ -1,14 +1,13 @@
-﻿using PaymentGateway.Abstractions;
+﻿using Abstractions;
 using System;
 
 namespace PaymentGateway.ExternalService
 {
     public class EventSender : IEventSender
     {
-        public void SendEvent(object e)
+        public void SendEvent(object obj)
         {
-            Console.WriteLine(e);
+            Console.WriteLine(obj);
         }
-
     }
 }
