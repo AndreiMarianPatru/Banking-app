@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Abstractions\Abstractions.csproj" />
+    <ProjectReference Include="..\PaymentGateway.Abstractions\PaymentGateway.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

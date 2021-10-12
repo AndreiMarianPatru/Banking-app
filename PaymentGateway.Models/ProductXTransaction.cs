@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaymentGateway.Models
+﻿namespace PaymentGateway.Models
 {
-   public  class ProductXTransaction
+    public class ProductXTransaction
     {
-        public int IdTransaction { get; set; }
-        public int IdProduct { get; set; }
-        public int Quantity { get; set; }
-
+        public int IdProduct;
+        public int IdTransaction;
+        public double Quantity;
     }
 }

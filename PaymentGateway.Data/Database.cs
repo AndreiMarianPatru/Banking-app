@@ -7,22 +7,26 @@ namespace PaymentGateway.Data
     public class Database
     {
         public List<Person> Persons = new List<Person>();
+        public List<Account> Accounts = new List<Account>();
         public List<Product> Products = new List<Product>();
-        public List<BankAccount> BankAccounts = new List<BankAccount>();
         public List<Transaction> Transactions = new List<Transaction>();
-        public List<ProductXTransaction> ProductXTransaction = new List<ProductXTransaction>();
+        public List<ProductXTransaction> pxt = new List<ProductXTransaction>();
 
-        private static Database instance;
+        private static Database _instance;
         public static Database GetInstance()
         {
-            if (instance == null) instance = new Database();
-            return instance;
-
+            if (_instance == null)
+                _instance = new Database();
+            return _instance;
         }
 
-        public void SaveChanges()
+        public void SaveChange()
         {
-            Console.WriteLine("Changes Saved.....");
+            Console.WriteLine("Saved to database");
         }
+
+
+
+
     }
 }

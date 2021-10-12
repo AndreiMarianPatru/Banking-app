@@ -1,27 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ihi1Hji3mwCByv0hCDAwCx+BHh5HBpWaB/BGBVhqJ/Q1wJRT0khnkfldg4Rz018mCI/4undFY+6mO9er5C2K9Q==",
-  "success": false,
+  "dgSpecHash": "yVEoz5TIhj4bMVq7eFHkkjC/upiZb7Gbf3kpD/QWYIcuIAGyty0p0ra8TdXb5a3TfX5YnaxragTu/d3t1YQr3A==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway\\PaymentGateway.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    },
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }

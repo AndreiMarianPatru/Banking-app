@@ -2,6 +2,16 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "PaymentGateway.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/PaymentGateway.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PaymentGateway.Abstractions.dll": {}
+        }
+      },
       "PaymentGateway.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -24,10 +34,28 @@
         "runtime": {
           "bin/placeholder/PaymentGateway.Models.dll": {}
         }
+      },
+      "PaymentGateway.PublishedLanguage/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "PaymentGateway.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PaymentGateway.PublishedLanguage.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PaymentGateway.PublishedLanguage.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "PaymentGateway.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../PaymentGateway.Abstractions/PaymentGateway.Abstractions.csproj",
+      "msbuildProject": "../PaymentGateway.Abstractions/PaymentGateway.Abstractions.csproj"
+    },
     "PaymentGateway.Data/1.0.0": {
       "type": "project",
       "path": "../PaymentGateway.Data/PaymentGateway.Data.csproj",
@@ -37,13 +65,19 @@
       "type": "project",
       "path": "../PaymentGateway.Models/PaymentGateway.Models.csproj",
       "msbuildProject": "../PaymentGateway.Models/PaymentGateway.Models.csproj"
+    },
+    "PaymentGateway.PublishedLanguage/1.0.0": {
+      "type": "project",
+      "path": "../PymentGateway.PublishedLanguage/PaymentGateway.PublishedLanguage.csproj",
+      "msbuildProject": "../PymentGateway.PublishedLanguage/PaymentGateway.PublishedLanguage.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj",
-      "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj",
-      "PaymentGateway.Data >= 1.0.0"
+      "PaymentGateway.Abstractions >= 1.0.0",
+      "PaymentGateway.Data >= 1.0.0",
+      "PaymentGateway.Models >= 1.0.0",
+      "PaymentGateway.PublishedLanguage >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -81,14 +115,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj"
             },
             "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj": {
               "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj"
             },
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj"
+            },
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj"
             }
           }
         }
@@ -120,25 +157,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    },
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }

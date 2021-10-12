@@ -1,12 +1,29 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "PaymentGateway.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/PaymentGateway.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PaymentGateway.Abstractions.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "PaymentGateway.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../PaymentGateway.Abstractions/PaymentGateway.Abstractions.csproj",
+      "msbuildProject": "../PaymentGateway.Abstractions/PaymentGateway.Abstractions.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj"
+      "PaymentGateway.Abstractions >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -44,8 +61,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj": {
-              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj"
+            "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj": {
+              "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj"
             }
           }
         }
@@ -77,16 +94,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\Abstractions\\Abstractions.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }
