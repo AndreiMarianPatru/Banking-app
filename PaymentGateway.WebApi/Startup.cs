@@ -1,7 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PaymentGateway.Abstractions;
+using PaymentGateway.Application;
+using PaymentGateway.Application.WriteOperations;
+using PaymentGateway.ExternalService;
+using PaymentGateway.WebApi.Swagger;
 
 namespace PaymentGateway.WebApi
 {
@@ -13,10 +19,18 @@ namespace PaymentGateway.WebApi
         {
             Configuration = configuration;
         }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddMvc(o => o.EnableEndpointRouting = false);
+
+            services.AddSingleton<IEventSender, EventSender>();
+            services.RegisterBusinessServices(Configuration);
+            services.AddSwagger(Configuration["Identity:Authority"]);
+
+            // NEVER USE
+            //services.BuildServiceProvider(); => serviceProvider...lista de "matrite"
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration)
@@ -32,6 +46,15 @@ namespace PaymentGateway.WebApi
 #pragma warning disable MVC1005 // Cannot use UseMvc with Endpoint Routing.
             app.UseMvc();
 #pragma warning restore MVC1005 // Cannot use UseMvc with Endpoint Routing.
+            
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Payment gateway Api");
+                //c.OAuthClientId("CharismaFinancialServices");
+                //c.OAuthScopeSeparator(" ");
+                c.EnableValidator(null);
+            });
 
             app.UseRouting();
 
