@@ -16,7 +16,8 @@
   <ItemGroup>
     <ProjectReference Include="..\PaymentGateway.Application\PaymentGateway.Application.csproj" />
     <ProjectReference Include="..\PaymentGateway.ExternalService\PaymentGateway.ExternalService.csproj" />
-    <ProjectReference Include="..\PaymentGateway.PublishedLanguage\PaymentGateway.PublishedLanguage.csproj" />
+    <ProjectReference Include="..\PymentGateway.PublishedLanguage\PaymentGateway.PublishedLanguage.csproj" />
+   
   </ItemGroup>
 
 

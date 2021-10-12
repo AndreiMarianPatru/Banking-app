@@ -35,7 +35,6 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PymentGateway.PublishedL
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PymentGateway.PublishedLanguage\obj\Debug\net5.0\PaymentGateway.PublishedLanguage.AssemblyInfoInputs.cache
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PymentGateway.PublishedLanguage\obj\Debug\net5.0\PaymentGateway.PublishedLanguage.AssemblyInfo.cs
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PymentGateway.PublishedLanguage\obj\Debug\net5.0\PaymentGateway.PublishedLanguage.csproj.CoreCompileInputs.cache
-C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PymentGateway.PublishedLanguage\obj\Debug\net5.0\PaymentGateway.PublishedLanguage.csproj.CopyComplete
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PymentGateway.PublishedLanguage\obj\Debug\net5.0\PaymentGateway.PublishedLanguage.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PymentGateway.PublishedLanguage\obj\Debug\net5.0\ref\PaymentGateway.PublishedLanguage.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PymentGateway.PublishedLanguage\obj\Debug\net5.0\PaymentGateway.PublishedLanguage.pdb

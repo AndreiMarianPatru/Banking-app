@@ -38,12 +38,14 @@ namespace PaymentGateway
             var serviceProvider = services.BuildServiceProvider();
 
 
-            EnrollCustomerCommand customer1 = new EnrollCustomerCommand();
-            customer1.Name = "Gigi";
-            customer1.Currency = "$";
-            customer1.Cnp = "5000118784512";
-            customer1.ClientType = "Individual";
-            customer1.AccountType = "Credit";
+            EnrollCustomerCommand customer1 = new EnrollCustomerCommand
+            {
+                Name = "Gigi",
+                Currency = "$",
+                Cnp = "5000118784512",
+                ClientType = "Individual",
+                AccountType = "Credit"
+            };
 
             IEventSender eventSender = new EventSender();
 
@@ -77,7 +79,10 @@ namespace PaymentGateway
             product1.Currency = "RON";
             product1.Limit = 100;
             product1.Value = 10;
-            CreateProductOperation product1Op = new CreateProductOperation(eventSender);
+
+            var product1Op = serviceProvider.GetRequiredService<CreateProductOperation>();
+
+         
             product1Op.PerformOperation(product1);
 
             MultiplePurchaseCommand purchase1 = new MultiplePurchaseCommand();

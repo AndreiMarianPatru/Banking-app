@@ -80,7 +80,6 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.AssemblyInfoInputs.cache
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.AssemblyInfo.cs
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.csproj.CoreCompileInputs.cache
-C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.csproj.CopyComplete
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\ref\PaymentGateway.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.pdb
@@ -98,3 +97,4 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.csproj.CopyComplete

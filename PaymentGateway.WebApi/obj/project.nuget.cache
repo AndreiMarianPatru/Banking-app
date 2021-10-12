@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "LcgaED3AaSdnz2Z1eHRjxe7jYivyahqAJaKyDAnGCl0hMUhSZVOBHNUws1IXFTZAwWoP8NPkuhcop1F/qo1jaQ==",
-  "success": false,
+  "dgSpecHash": "QH4H7IGiw5jzvV/9uvYPD1PqNwZCzfwwQ1ws6PTjWYm2YGhZBCMVMcWMwOlQ+MI7pWQ3G9AQi6X1qVYIYt4zzw==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.WebApi\\PaymentGateway.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andrei\\.nuget\\packages\\microsoft.azure.services.appauthentication\\1.4.0\\microsoft.azure.services.appauthentication.1.4.0.nupkg.sha512",
@@ -151,15 +151,5 @@
     "C:\\Users\\Andrei\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Andrei\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }

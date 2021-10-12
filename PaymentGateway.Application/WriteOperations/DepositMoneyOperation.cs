@@ -10,16 +10,18 @@ namespace PaymentGateway.Application.WriteOperations
 {
     public class DepositMoneyOperation : IWriteOperations<DepositMoneyCommand>
     {
-        public IEventSender eventSender;
-        public DepositMoneyOperation(IEventSender eventSender)
+        private readonly IEventSender _eventSender;
+        private readonly Database _database;
+        public DepositMoneyOperation(IEventSender eventSender, Database database)
         {
-            this.eventSender = eventSender;
+            _eventSender = eventSender;
+            _database = database;
         }
 
         public void PerformOperation(DepositMoneyCommand operation)
         {
-            Database database = Database.GetInstance();
-            var account = database.Accounts.FirstOrDefault(x => x.AccountID == operation.AccountId);
+           
+            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == operation.AccountId);
 
             if (account == null)
             {
@@ -35,9 +37,9 @@ namespace PaymentGateway.Application.WriteOperations
             account.Balance += transaction.Amount;
 
 
-            database.SaveChange();
+            _database.SaveChange();
             MoneyDeposited eventMoneyDeposited = new(operation.AccountId, operation.Ammount);
-            eventSender.SendEvent(eventMoneyDeposited);
+            _eventSender.SendEvent(eventMoneyDeposited);
 
 
         }

@@ -10,16 +10,20 @@ namespace PaymentGateway.Application.WriteOperations
 {
     public class WithdrawMoneyOperation : IWriteOperations<WithdrawMoneyCommand>
     {
-        public IEventSender eventSender;
-        public WithdrawMoneyOperation(IEventSender eventSender)
+        private readonly IEventSender _eventSender;
+        private readonly Database _database;
+
+        public WithdrawMoneyOperation(IEventSender eventSender, Database database)
         {
-            this.eventSender = eventSender;
+            _eventSender = eventSender;
+            _database = database;
         }
 
         public void PerformOperation(WithdrawMoneyCommand operation)
         {
-            Database database = Database.GetInstance();
-            var account = database.Accounts.FirstOrDefault(x => x.AccountID == operation.AccountId);
+
+           
+            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == operation.AccountId);
 
             if (account == null)
             {
@@ -36,13 +40,13 @@ namespace PaymentGateway.Application.WriteOperations
             transaction.Currency = account.Currency;
             transaction.Date = DateTime.UtcNow;
             transaction.Type = "Normal";
-            database.Transactions.Add(transaction);
+            _database.Transactions.Add(transaction);
             account.Balance -= transaction.Amount;
 
 
-            database.SaveChange();
+            _database.SaveChange();
             MoneyWithdrawn eventMoneyDeposited = new(operation.AccountId, operation.Ammount);
-            eventSender.SendEvent(eventMoneyDeposited);
+            _eventSender.SendEvent(eventMoneyDeposited);
 
 
         }

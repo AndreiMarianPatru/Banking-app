@@ -10,23 +10,25 @@ namespace PaymentGateway.Application.WriteOperations
 {
     public class PurchaseProductOperation
     {
-        public IEventSender eventSender;
-        public PurchaseProductOperation(IEventSender eventSender)
+        private readonly Database _database;
+        private readonly IEventSender _eventSender;
+        public PurchaseProductOperation(IEventSender eventSender, Database database)
         {
-            this.eventSender = eventSender;
+            _eventSender = eventSender;
+            _database = database;
         }
 
         public void PerformOperation(PurchaseProductCommand operation)
         {
-            Database database = Database.GetInstance();
+            
             var total = 0d;
-            var account = database.Accounts.FirstOrDefault(x => x.AccountID == operation.IdAccount);
+            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == operation.IdAccount);
             if (operation.Command != null)
             {
 
                 foreach (var item in operation.Command.Details)
                 {
-                    var product = database.Products.FirstOrDefault(x => x.Id == item.ProductId);
+                    var product = _database.Products.FirstOrDefault(x => x.Id == item.ProductId);
                     if (product.Limit < item.Quantity)
                     {
                         throw new Exception("Insufficient stocks");
@@ -49,22 +51,22 @@ namespace PaymentGateway.Application.WriteOperations
             transaction.Currency = account.Currency;
             transaction.Date = DateTime.UtcNow;
             transaction.Type = "Normal";
-            database.Transactions.Add(transaction);
+            _database.Transactions.Add(transaction);
             account.Balance -= transaction.Amount;
             foreach (var item in operation.Command.Details)
             {
 
-                var product = database.Products.FirstOrDefault(x => x.Id == item.ProductId);
+                var product = _database.Products.FirstOrDefault(x => x.Id == item.ProductId);
                 product.Limit -= item.Quantity;
                 var ptx = new ProductXTransaction();
                 ptx.IdProduct = product.Id;
                 ptx.IdTransaction = transaction.Id;
                 ptx.Quantity = item.Quantity;
-                database.pxt.Add(ptx);
+                _database.pxt.Add(ptx);
 
             }
             ProductPurchased eventProductPurchased = new(operation.Name, operation.Currency, operation.IdAccount, operation.Command);
-            eventSender.SendEvent(eventProductPurchased);
+            _eventSender.SendEvent(eventProductPurchased);
 
         }
     }

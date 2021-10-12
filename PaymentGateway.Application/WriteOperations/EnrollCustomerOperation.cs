@@ -6,21 +6,24 @@ using PaymentGateway.WriteSide;
 using System;
 using System.Linq;
 
+
 namespace PaymentGateway.Application.WriteOperations
 {
     public class EnrollCustomerOperation : IWriteOperations<EnrollCustomerCommand>
     {
-        public IEventSender eventSender;
-        public EnrollCustomerOperation(IEventSender eventSender)
+        private readonly IEventSender _eventSender;
+        private readonly Database _database;
+        public EnrollCustomerOperation(IEventSender eventSender, Database database)
         {
-            this.eventSender = eventSender;
+            _eventSender = eventSender;
+            _database = database;
         }
         public void PerformOperation(EnrollCustomerCommand operation)
         {
 
             //var Database = new Database();
             var random = new Random();
-            Database database = Database.GetInstance();
+          
             Person person = new Person();
             person.Cnp = operation.Cnp;
             person.Name = operation.Name;
@@ -33,19 +36,19 @@ namespace PaymentGateway.Application.WriteOperations
                 throw new Exception("Unsupported Type");
 
 
-            database.Persons.Add(person);
+            _database.Persons.Add(person);
 
             Account account = new Account();
             account.Type = operation.AccountType;
             account.Currency = operation.Currency;
             account.Balance = 0;
             account.IbanCode = random.Next(1000000).ToString();
-            account.AccountID = database.Accounts.Count() + 1;
-            database.Accounts.Add(account);
+            account.AccountID = _database.Accounts.Count() + 1;
+            _database.Accounts.Add(account);
 
-            database.SaveChange();
+            _database.SaveChange();
             CustomerEnrolled eventCustEnroll = new(operation.Name, operation.Cnp, operation.ClientType);
-            eventSender.SendEvent(eventCustEnroll);
+            _eventSender.SendEvent(eventCustEnroll);
 
         }
     }

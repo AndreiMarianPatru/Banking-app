@@ -9,7 +9,7 @@ namespace PaymentGateway.PublishedLanguage.Events
         public string Currency { get; set; }
         public string Type { get; set; }
 
-        MakeTransaction(double amount, DateTime date, string currency, string type)
+        public MakeTransaction(double amount, DateTime date, string currency, string type)
         {
             this.Amount = amount;
             this.Date = date;
