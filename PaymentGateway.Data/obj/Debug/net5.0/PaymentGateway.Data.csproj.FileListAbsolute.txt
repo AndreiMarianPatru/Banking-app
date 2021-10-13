@@ -42,3 +42,4 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Data\obj\
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\ref\PaymentGateway.Data.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.pdb
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.csproj.CopyComplete

@@ -2,6 +2,9 @@
 {
     public interface IWriteOperations<T>
     {
-        public void PerformOperation(T operation);
+        public interface IWriteOperation<TCommand>
+        {
+            void PerformOperation(TCommand operation);
+        }
     }
 }

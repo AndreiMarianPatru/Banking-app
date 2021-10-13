@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 
 
+
 namespace PaymentGateway.Application.WriteOperations
 {
     public class EnrollCustomerOperation : IWriteOperations<EnrollCustomerCommand>
@@ -34,6 +35,7 @@ namespace PaymentGateway.Application.WriteOperations
                 person.Type = (int)PersonType.Individual;
             else
                 throw new Exception("Unsupported Type");
+            person.PersonID = _database.Persons.Count + 1;
 
 
             _database.Persons.Add(person);

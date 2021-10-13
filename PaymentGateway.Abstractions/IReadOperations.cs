@@ -1,6 +1,7 @@
 ﻿namespace PaymentGateway.Abstractions
 {
-    class IReadOperations
+    public interface IReadOperation<TInput, TResult>
     {
+        TResult PerformOperation(TInput query);
     }
 }

@@ -52,6 +52,7 @@ namespace PaymentGateway.Application.WriteOperations
             transaction.Date = DateTime.UtcNow;
             transaction.Type = "Normal";
             _database.Transactions.Add(transaction);
+            _database.SaveChange();
             account.Balance -= transaction.Amount;
             foreach (var item in operation.Command.Details)
             {

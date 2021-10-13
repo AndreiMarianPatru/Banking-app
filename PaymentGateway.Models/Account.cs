@@ -11,6 +11,7 @@
         public int AccountID { get; set; }
 
         public string OwnerCnp { get; set; }
+    
 
         public Account(double balance, string currency, string IbanCode, string type, string status, double limit, int id, string ownerCnp)
         {
@@ -22,6 +23,7 @@
             this.Type = type;
             this.AccountID = id;
             this.OwnerCnp = ownerCnp;
+           
         }
         public Account()
         {

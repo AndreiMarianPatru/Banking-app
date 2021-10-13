@@ -100,6 +100,16 @@ namespace PaymentGateway
             var purchaseProduct = serviceProvider.GetRequiredService<PurchaseProductOperation>();
             purchaseProduct.PerformOperation(purchase2);
 
+
+
+            var query = new Application.ReadOperations.ListOfAccounts.Query
+            {
+                PersonId = 1
+            };
+
+            var handler = serviceProvider.GetRequiredService<ListOfAccounts.QueryHandler>();
+            var result = handler.PerformOperation(query);
+
         }
     }
 }
