@@ -15,6 +15,8 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using static PaymentGateway.Models.MultiplePurchaseCommand;
+using PaymentGateway.PublishedLanguage.Events;
+using System.Reflection;
 
 namespace PaymentGateway
 {
@@ -32,14 +34,16 @@ namespace PaymentGateway
 
             // setup
             var services = new ServiceCollection();
+            services.RegisterBusinessServices(Configuration);
 
             var source = new CancellationTokenSource();
             var cancellationToken = source.Token;
             services.AddMediatR(typeof(ListOfAccounts).Assembly, typeof(AllEventsHandler).Assembly);
 
-            services.RegisterBusinessServices(Configuration);
+            services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(CustomerEnrolled).Assembly);
 
-           // services.AddSingleton<IEventSender, EventSender>();
+
+            // services.AddSingleton<IEventSender, EventSender>();
             services.AddSingleton(Configuration);
 
             // build
