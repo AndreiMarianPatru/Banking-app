@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "JmL6cV4lQu8V4oUM/Ej9TIwS23XuEvGxDRb7I87edPYjMO0gCvZjxe6dG7CwKbCjukkrZMITNiZtYdDsHYS0iw==",
+  "dgSpecHash": "/WNSGFYRAIEq4fT3mQ+LXt8yyhGnSoFdR47aARcuHmcmmwgivUjgczw/H4HKM0VsVRsGeV4PIIiLDWdmCmz42A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PymentGateway.PublishedLanguage\\PaymentGateway.PublishedLanguage.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Andrei\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

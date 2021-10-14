@@ -1,6 +1,8 @@
-﻿namespace PaymentGateway.PublishedLanguage.Events
+﻿using MediatR;
+
+namespace PaymentGateway.PublishedLanguage.Events
 {
-    public class AccountCreated
+    public class AccountCreated : INotification
     {
         public double Balance { get; set; }
         public string Currency { get; set; }

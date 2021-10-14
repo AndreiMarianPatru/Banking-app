@@ -1,6 +1,7 @@
-﻿namespace PaymentGateway.PublishedLanguage.WriteSide
+﻿using MediatR;
+namespace PaymentGateway.PublishedLanguage.Commands
 {
-    public class CrerateAccountCommand
+    public class CreateAccountCommand : IRequest
     {
 
         public double Balance { get; set; }

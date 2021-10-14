@@ -7,5 +7,8 @@
   <ItemGroup>
     <ProjectReference Include="..\PaymentGateway.Models\PaymentGateway.Models.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="$(MediatRPackageVersion)" />
+  </ItemGroup>
 
 </Project>

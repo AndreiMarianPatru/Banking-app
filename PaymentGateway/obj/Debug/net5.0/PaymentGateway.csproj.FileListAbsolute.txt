@@ -97,3 +97,5 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\MediatR.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.csproj.CopyComplete

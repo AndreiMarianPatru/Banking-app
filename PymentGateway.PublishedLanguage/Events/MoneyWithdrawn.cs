@@ -1,8 +1,10 @@
-﻿namespace PaymentGateway.PublishedLanguage.Events
+﻿using MediatR;
+
+namespace PaymentGateway.PublishedLanguage.Events
 {
 
 
-    public class MoneyWithdrawn
+    public class MoneyWithdrawn : INotification
     {
         public int AccountId;
 

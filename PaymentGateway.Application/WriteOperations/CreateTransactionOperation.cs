@@ -1,12 +1,15 @@
-﻿using PaymentGateway.Abstractions;
+﻿using MediatR;
+using PaymentGateway.Abstractions;
 using PaymentGateway.Data;
 using PaymentGateway.Models;
+using PaymentGateway.PublishedLanguage.Commands;
 using PaymentGateway.PublishedLanguage.Events;
-using PaymentGateway.PublishedLanguage.WriteSide;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PaymentGateway.Application.WriteOperations
 {
-    class CreateTransactionOperation : IWriteOperations<MakeTransactionCommand>
+    class CreateTransactionOperation : IRequestHandler<MakeTransactionCommand>
     {
         private readonly IEventSender _eventSender;
         private readonly Database _database;
@@ -18,17 +21,19 @@ namespace PaymentGateway.Application.WriteOperations
 
         }
 
-        public void PerformOperation(MakeTransactionCommand operation)
+        public Task<Unit> Handle(MakeTransactionCommand request, CancellationToken cancellationToken)
         {
-
             Transaction transaction = new Transaction();
-            transaction.Amount = operation.Amount;
-            transaction.Currency = operation.Currency;
-            transaction.Date = operation.Date;
-            transaction.Type = operation.Type;
+            transaction.Amount = request.Amount;
+            transaction.Currency = request.Currency;
+            transaction.Date = request.Date;
+            transaction.Type = request.Type;
             _database.Transactions.Add(transaction);
-            MakeTransaction transactionMade = new(operation.Amount,operation.Date,operation.Currency,operation.Type);
+            MakeTransaction transactionMade = new(request.Amount, request.Date, request.Currency, request.Type);
             _eventSender.SendEvent(transactionMade);
+            return Unit.Task;
         }
+
+       
     }
 }

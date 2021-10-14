@@ -2,8 +2,8 @@
 using PaymentGateway.Application.WriteOperations;
 using PaymentGateway.ExternalService;
 using PaymentGateway.Models;
-using PaymentGateway.PublishedLanguage.WriteSide;
-using PaymentGateway.WriteSide;
+
+
 using System.Collections.Generic;
 using static PaymentGateway.Models.MultiplePurchaseCommand;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +12,7 @@ using PaymentGateway.Application;
 using PaymentGateway.Application.ReadOperations;
 using System.IO;
 using System;
+using PaymentGateway.PublishedLanguage.Commands;
 
 namespace PaymentGateway
 {
@@ -50,9 +51,9 @@ namespace PaymentGateway
             IEventSender eventSender = new EventSender();
 
             var enrollCustomerOperation = serviceProvider.GetRequiredService<EnrollCustomerOperation>();
-            enrollCustomerOperation.PerformOperation(customer1);
+            enrollCustomerOperation.Handle(customer1, default).GetAwaiter().GetResult();
 
-            CrerateAccountCommand account1 = new CrerateAccountCommand();
+            CreateAccountCommand account1 = new CreateAccountCommand();
             account1.Currency = "RON";
             account1.Limit = 1000000.00;
             account1.Status = "Open";
@@ -60,19 +61,19 @@ namespace PaymentGateway
             account1.OwnerCnp = "5000118784512";
 
             var makeAccountOperation = serviceProvider.GetRequiredService<CreateAccountOperation>();
-            makeAccountOperation.PerformOperation(account1);
+            makeAccountOperation.Handle(account1, default).GetAwaiter().GetResult();
 
             DepositMoneyCommand deposit1 = new DepositMoneyCommand();
             deposit1.AccountId = 1;
             deposit1.Ammount = 1000;
             var makeDeposit = serviceProvider.GetRequiredService<DepositMoneyOperation>();
-            makeDeposit.PerformOperation(deposit1);
+            makeDeposit.Handle(deposit1, default).GetAwaiter().GetResult();
 
             WithdrawMoneyCommand withdraw1 = new WithdrawMoneyCommand();
             withdraw1.AccountId = 1;
             withdraw1.Ammount = 100;
             var makeWithdraw = serviceProvider.GetRequiredService<WithdrawMoneyOperation>();
-            makeWithdraw.PerformOperation(withdraw1);
+            makeWithdraw.Handle(withdraw1, default).GetAwaiter().GetResult();
 
             CreateProductCommand product1 = new CreateProductCommand();
             product1.Name = "pc";
@@ -83,7 +84,7 @@ namespace PaymentGateway
             var product1Op = serviceProvider.GetRequiredService<CreateProductOperation>();
 
          
-            product1Op.PerformOperation(product1);
+            product1Op.Handle(product1,default).GetAwaiter().GetResult();
 
             MultiplePurchaseCommand purchase1 = new MultiplePurchaseCommand();
             var items = new List<CommandDetails>();
@@ -98,7 +99,7 @@ namespace PaymentGateway
             purchase2.Currency = "RON";
             purchase2.Name = "pc";
             var purchaseProduct = serviceProvider.GetRequiredService<PurchaseProductOperation>();
-            purchaseProduct.PerformOperation(purchase2);
+            purchaseProduct.Handle(purchase2, default).GetAwaiter().GetResult();
 
 
 
@@ -108,7 +109,7 @@ namespace PaymentGateway
             };
 
             var handler = serviceProvider.GetRequiredService<ListOfAccounts.QueryHandler>();
-            var result = handler.PerformOperation(query);
+            var result = handler.Handle(query, default).GetAwaiter().GetResult();
 
         }
     }

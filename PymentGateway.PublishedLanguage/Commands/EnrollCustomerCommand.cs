@@ -1,6 +1,10 @@
-﻿namespace PaymentGateway.WriteSide
+﻿using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MediatR;
+namespace PaymentGateway.PublishedLanguage.Commands
 {
-    public class EnrollCustomerCommand
+    public class EnrollCustomerCommand : IRequest
     {
         public string Name { get; set; }
         public string Cnp { get; set; }

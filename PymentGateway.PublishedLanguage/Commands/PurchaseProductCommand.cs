@@ -1,8 +1,9 @@
-﻿using PaymentGateway.Models;
+﻿using MediatR;
+using PaymentGateway.Models;
 
-namespace PaymentGateway.PublishedLanguage.WriteSide
+namespace PaymentGateway.PublishedLanguage.Commands
 {
-    public class PurchaseProductCommand
+    public class PurchaseProductCommand : IRequest
     {
         public string Name { get; set; }
         public double Value { get; set; }

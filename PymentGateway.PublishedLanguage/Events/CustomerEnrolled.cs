@@ -1,6 +1,8 @@
-﻿namespace PaymentGateway.PublishedLanguage.Events
+﻿using MediatR;
+
+namespace PaymentGateway.PublishedLanguage.Events
 {
-    public class CustomerEnrolled
+    public class CustomerEnrolled : INotification
     {
         public string Name { get; set; }
         public string Cnp { get; set; }

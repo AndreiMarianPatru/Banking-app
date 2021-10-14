@@ -2,13 +2,17 @@
 using PaymentGateway.Data;
 using PaymentGateway.Models;
 using PaymentGateway.PublishedLanguage.Events;
-using PaymentGateway.PublishedLanguage.WriteSide;
+
 using System;
 using System.Linq;
+using MediatR;
+using System.Threading.Tasks;
+using System.Threading;
+using PaymentGateway.PublishedLanguage.Commands;
 
 namespace PaymentGateway.Application.WriteOperations
 {
-    public class DepositMoneyOperation : IWriteOperations<DepositMoneyCommand>
+    public class DepositMoneyOperation : IRequestHandler<DepositMoneyCommand>
     {
         private readonly IEventSender _eventSender;
         private readonly Database _database;
@@ -18,10 +22,10 @@ namespace PaymentGateway.Application.WriteOperations
             _database = database;
         }
 
-        public void PerformOperation(DepositMoneyCommand operation)
+        public Task<Unit> Handle(DepositMoneyCommand request, CancellationToken cancellationToken)
         {
-           
-            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == operation.AccountId);
+
+            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == request.AccountId);
 
             if (account == null)
             {
@@ -30,7 +34,7 @@ namespace PaymentGateway.Application.WriteOperations
 
 
             var transaction = new Transaction();
-            transaction.Amount = operation.Ammount;
+            transaction.Amount = request.Ammount;
             transaction.Currency = account.Currency;
             transaction.Date = DateTime.UtcNow;
             transaction.Type = "Normal";
@@ -38,8 +42,10 @@ namespace PaymentGateway.Application.WriteOperations
 
 
             _database.SaveChange();
-            MoneyDeposited eventMoneyDeposited = new(operation.AccountId, operation.Ammount);
+            MoneyDeposited eventMoneyDeposited = new(request.AccountId, request.Ammount);
             _eventSender.SendEvent(eventMoneyDeposited);
+            return Unit.Task;
+
 
 
         }

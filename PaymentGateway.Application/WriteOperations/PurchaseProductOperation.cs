@@ -1,14 +1,18 @@
-﻿using PaymentGateway.Abstractions;
+﻿using MediatR;
+using PaymentGateway.Abstractions;
 using PaymentGateway.Data;
 using PaymentGateway.Models;
+using PaymentGateway.PublishedLanguage.Commands;
 using PaymentGateway.PublishedLanguage.Events;
-using PaymentGateway.PublishedLanguage.WriteSide;
+
 using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PaymentGateway.Application.WriteOperations
 {
-    public class PurchaseProductOperation
+    public class PurchaseProductOperation : IRequestHandler<PurchaseProductCommand>
     {
         private readonly Database _database;
         private readonly IEventSender _eventSender;
@@ -18,15 +22,15 @@ namespace PaymentGateway.Application.WriteOperations
             _database = database;
         }
 
-        public void PerformOperation(PurchaseProductCommand operation)
+        public Task<Unit> Handle(PurchaseProductCommand request, CancellationToken cancellationToken)
         {
             
             var total = 0d;
-            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == operation.IdAccount);
-            if (operation.Command != null)
+            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == request.IdAccount);
+            if (request.Command != null)
             {
 
-                foreach (var item in operation.Command.Details)
+                foreach (var item in request.Command.Details)
                 {
                     var product = _database.Products.FirstOrDefault(x => x.Id == item.ProductId);
                     if (product.Limit < item.Quantity)
@@ -54,7 +58,7 @@ namespace PaymentGateway.Application.WriteOperations
             _database.Transactions.Add(transaction);
             _database.SaveChange();
             account.Balance -= transaction.Amount;
-            foreach (var item in operation.Command.Details)
+            foreach (var item in request.Command.Details)
             {
 
                 var product = _database.Products.FirstOrDefault(x => x.Id == item.ProductId);
@@ -66,8 +70,10 @@ namespace PaymentGateway.Application.WriteOperations
                 _database.pxt.Add(ptx);
 
             }
-            ProductPurchased eventProductPurchased = new(operation.Name, operation.Currency, operation.IdAccount, operation.Command);
+            ProductPurchased eventProductPurchased = new(request.Name, request.Currency, request.IdAccount, request.Command);
             _eventSender.SendEvent(eventProductPurchased);
+            return Unit.Task;
+
 
         }
     }

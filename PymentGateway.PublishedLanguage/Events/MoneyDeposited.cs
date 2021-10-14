@@ -1,6 +1,8 @@
-﻿namespace PaymentGateway.PublishedLanguage.Events
+﻿using MediatR;
+
+namespace PaymentGateway.PublishedLanguage.Events
 {
-    public class MoneyDeposited
+    public class MoneyDeposited : INotification
     {
         public int AccountId;
 

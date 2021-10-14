@@ -1,8 +1,9 @@
-﻿using PaymentGateway.Models;
+﻿using MediatR;
+using PaymentGateway.Models;
 
 namespace PaymentGateway.PublishedLanguage.Events
 {
-    public class ProductPurchased
+    public class ProductPurchased : INotification
     {
         public string Name { get; set; }
 

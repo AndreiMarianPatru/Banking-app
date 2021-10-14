@@ -1,6 +1,8 @@
-﻿namespace PaymentGateway.PublishedLanguage.WriteSide
+﻿using MediatR;
+
+namespace PaymentGateway.PublishedLanguage.Commands
 {
-    public class CreateProductCommand
+    public class CreateProductCommand : IRequest
     {
         public string Name { get; set; }
         public double Value { get; set; }

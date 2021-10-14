@@ -1,6 +1,8 @@
-﻿namespace PaymentGateway.PublishedLanguage.Events
+﻿using MediatR;
+
+namespace PaymentGateway.PublishedLanguage.Events
 {
-    public class ProductAdded
+    public class ProductAdded : INotification
     {
         public string Name { get; set; }
         public double Value { get; set; }

@@ -1,15 +1,18 @@
-﻿using PaymentGateway.Abstractions;
+﻿using MediatR;
+using PaymentGateway.Abstractions;
 using PaymentGateway.Data;
 using PaymentGateway.Models;
+using PaymentGateway.PublishedLanguage.Commands;
 using PaymentGateway.PublishedLanguage.Events;
-using PaymentGateway.PublishedLanguage.WriteSide;
+
 using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PaymentGateway.Application.WriteOperations
 {
-    public class CreateProductOperation : IWriteOperations<CreateProductCommand>
-    {
+    public class CreateProductOperation : IRequestHandler<CreateProductCommand> { 
 
         private readonly  IEventSender _eventSender;
         private readonly Database _database;
@@ -21,21 +24,22 @@ namespace PaymentGateway.Application.WriteOperations
 
 
 
-        public void PerformOperation(CreateProductCommand operation)
-        {
+    public Task<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    {
 
             var random = new Random();
             
             Product product = new Product();
             product.Id = _database.Products.Count() + 1;
-            product.Currency = operation.Currency;
-            product.Limit = operation.Limit;
-            product.Name = operation.Name;
-            product.Value = operation.Value;
+            product.Currency = request.Currency;
+            product.Limit = request.Limit;
+            product.Name = request.Name;
+            product.Value = request.Value;
             _database.Products.Add(product);
             _database.SaveChange();
-            ProductAdded eventProductAdded = new(operation.Name, operation.Value, operation.Currency, operation.Limit);
+            ProductAdded eventProductAdded = new(request.Name, request.Value, request.Currency, request.Limit);
             _eventSender.SendEvent(eventProductAdded);
+        return Unit.Task;
 
         }
 

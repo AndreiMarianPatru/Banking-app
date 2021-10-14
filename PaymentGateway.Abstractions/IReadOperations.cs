@@ -1,7 +1,8 @@
-﻿namespace PaymentGateway.Abstractions
-{
-    public interface IReadOperation<TInput, TResult>
-    {
-        TResult PerformOperation(TInput query);
-    }
-}
+﻿//namespace PaymentGateway.Abstractions
+//{
+    //    public interface IReadOperation<TInput, TResult> // IRequest<TInput, TResult>
+
+    //{
+      //  TResult PerformOperation(TInput query);
+   // }
+//}

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MediatR;
+using System;
 
-namespace PaymentGateway.PublishedLanguage.WriteSide
+namespace PaymentGateway.PublishedLanguage.Commands
 {
-    public class MakeTransactionCommand
+    public class MakeTransactionCommand : IRequest
     {
 
         public double Amount { get; set; }

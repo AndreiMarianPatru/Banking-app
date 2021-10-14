@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MediatR;
+using System;
 
 namespace PaymentGateway.PublishedLanguage.Events
 {
-    public class MakeTransaction
+    public class MakeTransaction : INotification
     {
         public double Amount { get; set; }
         public DateTime Date { get; set; }
