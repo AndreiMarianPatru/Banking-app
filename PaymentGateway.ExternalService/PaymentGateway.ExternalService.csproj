@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PaymentGateway.Abstractions\PaymentGateway.Abstractions.csproj" />
+  
+
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="$(MediatRPackageVersion)" />
+  </ItemGroup>
+  
 
 </Project>

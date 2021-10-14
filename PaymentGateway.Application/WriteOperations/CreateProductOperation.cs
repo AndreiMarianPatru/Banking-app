@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using PaymentGateway.Abstractions;
+
 using PaymentGateway.Data;
 using PaymentGateway.Models;
 using PaymentGateway.PublishedLanguage.Commands;
@@ -12,20 +12,20 @@ using System.Threading.Tasks;
 
 namespace PaymentGateway.Application.WriteOperations
 {
-    public class CreateProductOperation : IRequestHandler<CreateProductCommand> { 
+    public class CreateProductOperation : IRequestHandler<CreateProductCommand> {
 
-        private readonly  IEventSender _eventSender;
+        private readonly IMediator _mediator;
         private readonly Database _database;
-        public CreateProductOperation(IEventSender eventSender,Database database)
+        public CreateProductOperation(IMediator mediator, Database database)
         {
-            _eventSender = eventSender;
+            _mediator = mediator;
             _database = database;
         }
 
 
 
-    public Task<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-    {
+        public async Task<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        {
 
             var random = new Random();
             
@@ -38,8 +38,8 @@ namespace PaymentGateway.Application.WriteOperations
             _database.Products.Add(product);
             _database.SaveChange();
             ProductAdded eventProductAdded = new(request.Name, request.Value, request.Currency, request.Limit);
-            _eventSender.SendEvent(eventProductAdded);
-        return Unit.Task;
+            await _mediator.Publish(eventProductAdded, cancellationToken);
+            return Unit.Value;
 
         }
 

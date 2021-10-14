@@ -1,4 +1,4 @@
-﻿using PaymentGateway.Abstractions;
+﻿
 using PaymentGateway.Data;
 using PaymentGateway.Models;
 using PaymentGateway.PublishedLanguage.Events;
@@ -14,19 +14,19 @@ namespace PaymentGateway.Application.WriteOperations
 {
     public class CreateAccountOperation : IRequestHandler<CreateAccountCommand>
     {
-        private readonly IEventSender _eventSender;
+        private readonly IMediator _mediator;
         private readonly AccountOptions _accountOptions;
         private readonly Database _database;
 
 
-        public CreateAccountOperation(IEventSender eventSender, AccountOptions accountOptions,Database database)
+        public CreateAccountOperation(IMediator mediator, AccountOptions accountOptions,Database database)
         {
-            _eventSender = eventSender;
+            _mediator = mediator;
             _accountOptions = accountOptions;
             _database = database;
         }
 
-        public Task<Unit> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
             var random = new Random();
             
@@ -43,8 +43,8 @@ namespace PaymentGateway.Application.WriteOperations
             _database.SaveChange();
 
             AccountCreated eventCreateAccount = new(request.Balance, request.Currency, request.IbanCode, request.Type, request.Status, request.Limit, request.AccountID, request.OwnerCnp);
-            _eventSender.SendEvent(eventCreateAccount);
-            return Unit.Task;
+            await _mediator.Publish(eventCreateAccount, cancellationToken);
+            return Unit.Value;
 
         }
 

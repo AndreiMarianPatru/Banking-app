@@ -12,17 +12,17 @@ namespace PaymentGateway.Application
     {
         public static IServiceCollection RegisterBusinessServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddTransient<EnrollCustomerOperation>();
-            services.AddTransient<CreateAccountOperation>();
-            services.AddTransient<DepositMoneyOperation>();
-            services.AddTransient<WithdrawMoneyOperation>();
-            services.AddTransient<PurchaseProductOperation>();
-            services.AddTransient<CreateProductOperation>();
+            //services.AddTransient<EnrollCustomerOperation>();
+            //services.AddTransient<CreateAccountOperation>();
+            //services.AddTransient<DepositMoneyOperation>();
+            //services.AddTransient<WithdrawMoneyOperation>();
+            //services.AddTransient<PurchaseProductOperation>();
+            //services.AddTransient<CreateProductOperation>();
 
             services.AddSingleton<Data.Database>();
 
             services.AddTransient<IValidator<Query>, Validator>();
-            services.AddTransient<QueryHandler>();
+           
 
             services.AddSingleton(sp =>
             {
