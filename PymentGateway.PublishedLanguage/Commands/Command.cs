@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using PaymentGateway.Models;
 using System.Collections.Generic;
 using static PaymentGateway.Models.MultiplePurchaseCommand;
 

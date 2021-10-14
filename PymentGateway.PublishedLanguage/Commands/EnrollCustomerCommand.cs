@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 namespace PaymentGateway.PublishedLanguage.Commands
 {
     public class EnrollCustomerCommand : IRequest

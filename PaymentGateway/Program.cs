@@ -9,10 +9,11 @@ using static PaymentGateway.Models.MultiplePurchaseCommand;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PaymentGateway.Application;
-using PaymentGateway.Application.ReadOperations;
+
 using System.IO;
 using System;
 using PaymentGateway.PublishedLanguage.Commands;
+using PaymentGateway.Application.Queries;
 
 namespace PaymentGateway
 {
@@ -103,7 +104,7 @@ namespace PaymentGateway
 
 
 
-            var query = new Application.ReadOperations.ListOfAccounts.Query
+            var query = new Application.Queries.ListOfAccounts.Query
             {
                 PersonId = 1
             };

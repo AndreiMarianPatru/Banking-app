@@ -1,5 +1,4 @@
 ﻿using Abstractions;
-using PaymentGateway.Abstractions;
 using PaymentGateway.Data;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace PaymentGateway.Application.ReadOperations
+namespace PaymentGateway.Application.Queries
 {
     public class ListOfAccounts
     {
