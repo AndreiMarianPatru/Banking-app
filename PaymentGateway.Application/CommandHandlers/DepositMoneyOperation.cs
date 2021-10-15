@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using PaymentGateway.PublishedLanguage.Commands;
 
-namespace PaymentGateway.Application.WriteOperations
+namespace PaymentGateway.Application.CommandHandlers
 {
     public class DepositMoneyOperation : IRequestHandler<DepositMoneyCommand>
     {
@@ -43,7 +43,7 @@ namespace PaymentGateway.Application.WriteOperations
 
             _database.SaveChange();
             MoneyDeposited eventMoneyDeposited = new(request.AccountId, request.Ammount);
-            await _mediator.Publish(eventMoneyDeposited, cancellationToken);
+             await _mediator.Publish(eventMoneyDeposited, cancellationToken);
             return Unit.Value;
 
 

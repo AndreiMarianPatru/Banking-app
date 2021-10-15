@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Threading;
 
 
-namespace PaymentGateway.Application.WriteOperations
+namespace PaymentGateway.Application.CommandHandlers
 {
     public class CreateAccountOperation : IRequestHandler<CreateAccountCommand>
     {

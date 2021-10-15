@@ -102,3 +102,7 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\bin\Debug\net5.0\Scrutor.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.csproj.CopyComplete
