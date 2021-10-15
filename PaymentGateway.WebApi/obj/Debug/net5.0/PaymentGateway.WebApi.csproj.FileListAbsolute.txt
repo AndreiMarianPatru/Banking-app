@@ -14,7 +14,6 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bi
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\PaymentGateway.WebApi.pdb
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\Microsoft.Azure.Services.AppAuthentication.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
-C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
@@ -77,3 +76,5 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bi
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\MediatR.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\Scrutor.dll

@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using static PaymentGateway.Models.MultiplePurchaseCommand;
 using PaymentGateway.PublishedLanguage.Events;
 using System.Reflection;
+using PaymentGateway.WebApi.MediatorPipeline;
 
 namespace PaymentGateway
 {
@@ -46,12 +47,13 @@ namespace PaymentGateway
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
 
-            services.AddMediatR(new[] { typeof(ListOfAccounts).Assembly, typeof(AllEventsHandler).Assembly }); // get all IRequestHandler and INotificationHandler classes
 
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>));
-            services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(CustomerEnrolled).Assembly);
 
+            services.AddScoped(typeof(IRequestPreProcessor<>), typeof(ValidationPreProcessor<>));
+            services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(CustomerEnrolled).Assembly);
+            services.AddMediatR(new[] { typeof(ListOfAccounts).Assembly, typeof(AllEventsHandler).Assembly }); // get all IRequestHandler and INotificationHandler classes
 
             // services.AddSingleton<IEventSender, EventSender>();
             services.AddSingleton(Configuration);

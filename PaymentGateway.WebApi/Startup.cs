@@ -13,6 +13,7 @@ using PaymentGateway.ExternalService;
 using PaymentGateway.PublishedLanguage.Events;
 using MediatR.Pipeline;
 using FluentValidation;
+using PaymentGateway.WebApi.MediatorPipeline;
 
 namespace PaymentGateway.WebApi
 {
@@ -41,6 +42,7 @@ namespace PaymentGateway.WebApi
 
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>));
+            services.AddScoped(typeof(IRequestPreProcessor<>), typeof(ValidationPreProcessor<>));
 
 
             services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(CustomerEnrolled).Assembly);
