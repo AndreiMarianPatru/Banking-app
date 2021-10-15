@@ -71,7 +71,6 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bi
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\PaymentGateway.Abstractions.pdb
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\PaymentGateway.Data.pdb
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\PaymentGateway.Models.pdb
-C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\PaymentGateway.WebApi.csproj.CopyComplete
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\MediatR.dll

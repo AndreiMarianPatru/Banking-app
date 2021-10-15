@@ -18,7 +18,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using static PaymentGateway.Models.MultiplePurchaseCommand;
 using PaymentGateway.PublishedLanguage.Events;
-using System.Reflection;
 using PaymentGateway.WebApi.MediatorPipeline;
 
 namespace PaymentGateway
