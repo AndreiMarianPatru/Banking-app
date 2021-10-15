@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using static PaymentGateway.Models.MultiplePurchaseCommand;
 using PaymentGateway.PublishedLanguage.Events;
 using PaymentGateway.WebApi.MediatorPipeline;
+using System.Linq;
 
 namespace PaymentGateway
 {
@@ -62,29 +63,68 @@ namespace PaymentGateway
             var database = serviceProvider.GetRequiredService<Database>();
             var mediator = serviceProvider.GetRequiredService<IMediator>();
 
-            EnrollCustomerCommand customer1 = new EnrollCustomerCommand
+
+            for(int i=0;i<=100;i++)
             {
-                Name = "Gigi",
-                Currency = "$",
-                Cnp = "5000118784512",
-                ClientType = "Individual",
-                AccountType = "Credit"
-            };
+                EnrollCustomerCommand customer = new EnrollCustomerCommand();
+                customer.Name= Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+                if(i%2==0)
+                {
+                    customer.Currency = "RON";
+                    customer.ClientType = "Individual";
+                    customer.AccountType = "Debit";
+                }
+                else
+                {
+                    customer.Currency = "EUR";
+                    customer.ClientType = "Company";
+                    customer.AccountType = "Credit";
+                }
+                customer.Cnp = (5000118780000 + i).ToString();
+                
+                await mediator.Send(customer, cancellationToken);
+            }
 
-           
+            //EnrollCustomerCommand customer1 = new EnrollCustomerCommand
+            //{
+            //    Name = "Gigi",
+            //    Currency = "RON",
+            //    Cnp = "5000118784512",
+            //    ClientType = "Individual",
+            //    AccountType = "Credit"
+            //};
 
-            // enrollCustomerOperation = serviceProvider.GetRequiredService<EnrollCustomerOperation>();
-            //enrollCustomerOperation.Handle(customer1, default).GetAwaiter().GetResult();
-            await mediator.Send(customer1, cancellationToken);
 
-            CreateAccountCommand account1 = new CreateAccountCommand();
-            account1.Currency = "RON";
-            account1.Limit = 1000000.00;
-            account1.Status = "Open";
-            account1.Type = "Current";
-            account1.OwnerCnp = "5000118784512";
 
-            await mediator.Send(account1, cancellationToken);
+            //// enrollCustomerOperation = serviceProvider.GetRequiredService<EnrollCustomerOperation>();
+            ////enrollCustomerOperation.Handle(customer1, default).GetAwaiter().GetResult();
+            //await mediator.Send(customer1, cancellationToken);
+
+
+            for (int i = 0; i <= 100; i++)
+            {
+                CreateAccountCommand customer = new CreateAccountCommand();
+                customer.Balance = 100;
+                if (i % 2 == 0)
+                {
+                    customer.Currency = "RON";
+                    customer.Type = "Individual";
+                    customer.Status = "Open";
+                    customer.Limit = 1000000;
+                }
+                else
+                {
+                    customer.Currency = "EUR";
+                    customer.Type = "Company";
+                    customer.Status = "Closed";
+                    customer.Limit = 1000000000;
+                }
+                customer.AccountID = i;
+                customer.OwnerCnp = database.Persons[i].Cnp;
+                
+                customer.IbanCode = (75410000 + i).ToString();
+                await mediator.Send(customer, cancellationToken);
+            }
 
             DepositMoneyCommand deposit1 = new DepositMoneyCommand();
             deposit1.AccountId = 1;
@@ -129,10 +169,23 @@ namespace PaymentGateway
 
             var query = new Application.Queries.ListOfAccounts.Query
             {
-                PersonId = 1
+                PersonId = 1,
+                Cnp = "500118784512"
             };
 
             var result = await mediator.Send(query, cancellationToken);
+
+            List<int> ana= new List<int>();
+            foreach(var myitem in database.Accounts)
+            {
+                ana.Add(myitem.OwnerID);
+                Console.WriteLine(myitem.OwnerID);
+            }
+
+            if (ana.Count != ana.Distinct().Count())
+            {
+                Console.WriteLine("duplicates in ");
+            }
 
         }
     }

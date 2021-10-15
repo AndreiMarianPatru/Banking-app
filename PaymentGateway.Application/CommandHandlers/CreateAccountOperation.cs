@@ -39,6 +39,7 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Status = request.Status;
             account.Type = request.Type;
             account.OwnerCnp = request.OwnerCnp;
+            account.OwnerID = _database.Persons.Count+1;
             _database.Accounts.Add(account);
             _database.SaveChange();
 

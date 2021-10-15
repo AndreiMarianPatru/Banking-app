@@ -59,4 +59,3 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Applicati
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Application\obj\Debug\net5.0\PaymentGateway.Application.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Application\obj\Debug\net5.0\ref\PaymentGateway.Application.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Application\obj\Debug\net5.0\PaymentGateway.Application.pdb
-C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Application\obj\Debug\net5.0\PaymentGateway.Application.csproj.CopyComplete

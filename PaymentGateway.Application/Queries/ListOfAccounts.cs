@@ -31,33 +31,43 @@ namespace PaymentGateway.Application.Queries
 
 
             public Validator(Database _database)
-
             {
-                 //this.Include<Validator>(r=> r.Cnp);
                 RuleFor(q => q).Must(query =>
                 {
-                    return query.PersonId.HasValue && !string.IsNullOrEmpty(query.Cnp);
-                }).WithMessage("Customer data is invalid");
+                    var person = query.PersonId.HasValue ?
+                    _database.Persons.FirstOrDefault(x => x.PersonID == query.PersonId) :
+                    _database.Persons.FirstOrDefault(x => x.Cnp == query.Cnp);
 
+                    return person != null;
+                }).WithMessage("Customer not found");
             }
 
-            public class Validator2 : AbstractValidator<Query>
+        }
+
+        public class Validator2 : AbstractValidator<Query>
+        {
+            public Validator2(Database database)
             {
-                public Validator2(Database _database)
+                RuleFor(q => q.PersonId).Must(personId =>
                 {
-                    RuleFor(q => q).Must(query =>
-                    {
-                        var person = query.PersonId.HasValue ?
-                        _database.Persons.FirstOrDefault(x => x.PersonID == query.PersonId) :
-                        _database.Persons.FirstOrDefault(x => x.Cnp == query.Cnp);
-                        return person != null;
-                    }).WithMessage("Customer not found");
+                    return personId.HasValue;
+                }).WithMessage("Customer data is invalid - personid");
 
-                }
+                RuleFor(q => q.Cnp).Must(cnp =>
+                {
+                    return !string.IsNullOrEmpty(cnp);
+                }).WithMessage("CNP is empty");
+
+                RuleFor(q => q.PersonId).Must(personId =>
+                {
+                    var exists = database.Persons.Any(x => x.PersonID == personId);
+                    return exists;
+                }).WithMessage("Customer does not exist");
             }
-           
+        }
 
-            public class QueryHandler : IRequestHandler<Query, List<Model>>
+
+        public class QueryHandler : IRequestHandler<Query, List<Model>>
             {
                 private readonly Database _database;
 
@@ -94,4 +104,4 @@ namespace PaymentGateway.Application.Queries
            
         }
     }
-}
+

@@ -51,6 +51,9 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Balance = 0;
             account.IbanCode = random.Next(1000000).ToString();
             account.AccountID = _database.Accounts.Count() + 1;
+            account.OwnerCnp = (603208780000 + _database.Accounts.Count).ToString();
+            account.OwnerID = person.PersonID;
+            account.Status = "Open";
             _database.Accounts.Add(account);
 
             _database.SaveChange();
