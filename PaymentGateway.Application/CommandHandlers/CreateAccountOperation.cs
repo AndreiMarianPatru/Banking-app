@@ -8,9 +8,6 @@ using System.Linq;
 using MediatR;
 using System.Threading.Tasks;
 using System.Threading;
-using PaymentGateway.PublishedLanguage.Events;
-using System.Threading.Tasks;
-using MediatR;
 
 
 namespace PaymentGateway.Application.CommandHandlers
@@ -47,9 +44,9 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Status = request.Status;
             account.Type = request.Type;
             account.OwnerCnp = request.OwnerCnp;
-            account.OwnerID = _dbContext.Persons.Count+1;
+            account.OwnerID = _dbContext.Persons.Count();
             _dbContext.Accounts.Add(account);
-            _dbContext.SaveChange();
+            _dbContext.SaveChanges();
 
             AccountCreated eventCreateAccount = new(request.Balance, request.Currency, request.IbanCode, request.Type, request.Status, request.Limit, request.AccountID, request.OwnerCnp);
             await _mediator.Publish(eventCreateAccount, cancellationToken);

@@ -8,12 +8,12 @@ namespace PaymentGateway.PublishedLanguage.Events
     {
         public int AccountId;
 
-        public int Ammount;
+        public decimal Amount { get; set; }
 
-        public MoneyWithdrawn(int accountId, int ammount)
+        public MoneyWithdrawn(int accountId, int amount)
         {
             this.AccountId = accountId;
-            this.Ammount = ammount;
+            this.Amount = amount;
         }
     }
 }

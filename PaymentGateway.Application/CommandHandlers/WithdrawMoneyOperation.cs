@@ -35,14 +35,14 @@ namespace PaymentGateway.Application.CommandHandlers
             {
                 throw new Exception("Account not found ");
             }
-            if (account.Balance < request.Ammount)
+            if (account.Balance < request.amount)
             {
                 throw new Exception("Insufficient money!");
             }
 
 
             var transaction = new Transaction();
-            transaction.Amount = request.Ammount;
+            transaction.Amount = request.amount;
             transaction.Currency = account.Currency;
             transaction.Date = DateTime.UtcNow;
             transaction.Type = "Normal";
@@ -50,8 +50,8 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Balance -= transaction.Amount;
 
 
-            _dbContext.SaveChange();
-            MoneyWithdrawn eventMoneyDeposited = new(request.AccountId, request.Ammount);
+            _dbContext.SaveChanges();
+            MoneyWithdrawn eventMoneyDeposited = new(request.AccountId, request.amount);
             await _mediator.Publish(eventMoneyDeposited, cancellationToken);
             return Unit.Value;
 

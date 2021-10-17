@@ -5,6 +5,6 @@ namespace PaymentGateway.PublishedLanguage.Commands
     {
         public int AccountId;
 
-        public int Ammount;
+        public int amount;
     }
 }

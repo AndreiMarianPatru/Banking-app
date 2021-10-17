@@ -6,7 +6,7 @@ namespace PaymentGateway.PublishedLanguage.Commands
     public class PurchaseProductCommand : IRequest
     {
         public string Name { get; set; }
-        public double Value { get; set; }
+        public decimal Value { get; set; }
         public string Currency { get; set; }
 
         public int IdAccount { get; set; }

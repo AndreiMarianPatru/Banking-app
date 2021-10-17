@@ -4,6 +4,6 @@
     {
         public int IdProduct;
         public int IdTransaction;
-        public double Quantity;
+        public decimal Quantity;
     }
 }

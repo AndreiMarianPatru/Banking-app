@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PaymentGateway.Application;
 using PaymentGateway.Application.Queries;
-using PaymentGateway.Application.CommandHandlers;
 //using PaymentGateway.Application.Services;
 using PaymentGateway.Data;
 using PaymentGateway.ExternalService;
@@ -38,6 +37,8 @@ namespace PaymentGateway
             // setup
             var services = new ServiceCollection();
             services.RegisterBusinessServices(Configuration);
+            services.AddPaymentDataAccess(Configuration);
+
 
             var source = new CancellationTokenSource();
             var cancellationToken = source.Token;
@@ -121,22 +122,23 @@ namespace PaymentGateway
                     customer.Limit = 1000000000;
                 }
                 customer.AccountID = i;
-                customer.OwnerCnp = database.Persons[i].Cnp;
-                
+                //customer.OwnerCnp = database.Persons[i].Cnp;
+                customer.OwnerCnp = database.Persons.ElementAt(i).Cnp;
+
                 customer.IbanCode = (75410000 + i).ToString();
                 await mediator.Send(customer, cancellationToken);
             }
 
             DepositMoneyCommand deposit1 = new DepositMoneyCommand();
             deposit1.AccountId = 1;
-            deposit1.Ammount = 1000;
+            deposit1.Amount = 1000;
             
             await mediator.Send(deposit1, cancellationToken);
 
 
             WithdrawMoneyCommand withdraw1 = new WithdrawMoneyCommand();
             withdraw1.AccountId = 1;
-            withdraw1.Ammount = 100;
+            withdraw1.amount = 100;
             
             await mediator.Send(withdraw1, cancellationToken);
 
@@ -154,7 +156,7 @@ namespace PaymentGateway
             var items = new List<CommandDetails>();
             var item = new CommandDetails();
             item.ProductId = 1;
-            item.Quantity = 2d;
+            item.Quantity = 2;
             items.Add(item);
             purchase1.Details = items;
             PurchaseProductCommand purchase2 = new PurchaseProductCommand();

@@ -27,7 +27,7 @@ namespace PaymentGateway.Application.CommandHandlers
         public async Task<Unit> Handle(PurchaseProductCommand request, CancellationToken cancellationToken)
         {
 
-            var total = 0d;
+            decimal total = 0;
             var account = _dbContext.Accounts.FirstOrDefault(x => x.AccountID == request.IdAccount);
             if (request.Command != null)
             {
@@ -58,7 +58,7 @@ namespace PaymentGateway.Application.CommandHandlers
             transaction.Date = DateTime.UtcNow;
             transaction.Type = "Normal";
             _dbContext.Transactions.Add(transaction);
-            _dbContext.SaveChange();
+            _dbContext.SaveChanges();
             account.Balance -= transaction.Amount;
             foreach (var item in request.Command.Details)
             {
@@ -69,8 +69,8 @@ namespace PaymentGateway.Application.CommandHandlers
                 ptx.IdProduct = product.Id;
                 ptx.IdTransaction = transaction.Id;
                 ptx.Quantity = item.Quantity;
-                _dbContext.pxt.Add(ptx);
-                _dbContext.SaveChange();
+                _dbContext.ProductXTransaction.Add(ptx);
+                _dbContext.SaveChanges();
 
             }
             ProductPurchased eventProductPurchased = new(request.Name, request.Currency, request.IdAccount, request.Command);

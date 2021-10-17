@@ -5,7 +5,7 @@ namespace PaymentGateway.PublishedLanguage.Commands
     {
         public int AccountId;
 
-        public int Ammount;
+        public decimal Amount { get; set; }
 
 
 

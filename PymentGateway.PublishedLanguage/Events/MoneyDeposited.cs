@@ -6,12 +6,12 @@ namespace PaymentGateway.PublishedLanguage.Events
     {
         public int AccountId;
 
-        public int Ammount;
+        public decimal Ammount;
 
-        public MoneyDeposited(int accountId, int ammount)
+        public MoneyDeposited(int accountId, decimal amount)
         {
             this.AccountId = accountId;
-            this.Ammount = ammount;
+            this.Ammount = amount;
         }
     }
 }

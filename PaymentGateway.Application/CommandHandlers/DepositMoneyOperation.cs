@@ -34,15 +34,15 @@ namespace PaymentGateway.Application.CommandHandlers
 
 
             var transaction = new Transaction();
-            transaction.Amount = request.Ammount;
+            transaction.Amount = request.Amount;
             transaction.Currency = account.Currency;
             transaction.Date = DateTime.UtcNow;
             transaction.Type = "Normal";
             account.Balance += transaction.Amount;
 
 
-            _dbContext.SaveChange();
-            MoneyDeposited eventMoneyDeposited = new(request.AccountId, request.Ammount);
+            _dbContext.SaveChanges();
+            MoneyDeposited eventMoneyDeposited = new(request.AccountId, request.Amount);
              await _mediator.Publish(eventMoneyDeposited, cancellationToken);
             return Unit.Value;
 

@@ -9,7 +9,7 @@ namespace PaymentGateway.PublishedLanguage.Commands
         public string IbanCode { get; set; }
         public string Type { get; set; }
         public string Status { get; set; }
-        public double Limit { get; set; }
+        public decimal Limit { get; set; }
         public int AccountID { get; set; }
         public string OwnerCnp { get; set; }
 

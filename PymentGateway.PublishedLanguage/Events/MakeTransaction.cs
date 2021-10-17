@@ -5,12 +5,12 @@ namespace PaymentGateway.PublishedLanguage.Events
 {
     public class MakeTransaction : INotification
     {
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public string Currency { get; set; }
         public string Type { get; set; }
 
-        public MakeTransaction(double amount, DateTime date, string currency, string type)
+        public MakeTransaction(decimal amount, DateTime date, string currency, string type)
         {
             this.Amount = amount;
             this.Date = date;

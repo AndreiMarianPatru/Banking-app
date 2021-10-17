@@ -86,3 +86,4 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\ob
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\ref\PaymentGateway.WebApi.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\PaymentGateway.WebApi.pdb
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\PaymentGateway.WebApi.genruntimeconfig.cache
+C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\PaymentGateway.WebApi.csproj.CopyComplete

@@ -36,7 +36,7 @@ namespace PaymentGateway.Application.CommandHandlers
             product.Name = request.Name;
             product.Value = request.Value;
             _dbContext.Products.Add(product);
-            _dbContext.SaveChange();
+            _dbContext.SaveChanges();
             ProductAdded eventProductAdded = new(request.Name, request.Value, request.Currency, request.Limit);
             await _mediator.Publish(eventProductAdded, cancellationToken);
             return Unit.Value;
