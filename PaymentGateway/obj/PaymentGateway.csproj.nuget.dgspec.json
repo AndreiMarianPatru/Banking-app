@@ -135,7 +135,7 @@
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[5.0.1, )"
             }
           },
           "imports": [
@@ -203,6 +203,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -557,7 +563,7 @@
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[5.0.1, )"
             },
             "Scrutor": {
               "target": "Package",

@@ -26,7 +26,6 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Abstracti
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Abstractions\bin\Debug\net5.0\PaymentGateway.Abstractions.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Abstractions\bin\Debug\net5.0\ref\PaymentGateway.Abstractions.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Abstractions\bin\Debug\net5.0\PaymentGateway.Abstractions.pdb
-C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Abstractions\obj\Debug\net5.0\PaymentGateway.Abstractions.csproj.AssemblyReference.cache
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Abstractions\obj\Debug\net5.0\PaymentGateway.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Abstractions\obj\Debug\net5.0\PaymentGateway.Abstractions.AssemblyInfoInputs.cache
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.Abstractions\obj\Debug\net5.0\PaymentGateway.Abstractions.AssemblyInfo.cs

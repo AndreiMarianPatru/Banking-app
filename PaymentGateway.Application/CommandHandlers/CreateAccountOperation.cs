@@ -8,6 +8,9 @@ using System.Linq;
 using MediatR;
 using System.Threading.Tasks;
 using System.Threading;
+using PaymentGateway.PublishedLanguage.Events;
+using System.Threading.Tasks;
+using MediatR;
 
 
 namespace PaymentGateway.Application.CommandHandlers
@@ -16,22 +19,27 @@ namespace PaymentGateway.Application.CommandHandlers
     {
         private readonly IMediator _mediator;
         private readonly AccountOptions _accountOptions;
-        private readonly Database _database;
+        private readonly PaymentDbContext _dbContext;
 
 
-        public CreateAccountOperation(IMediator mediator, AccountOptions accountOptions,Database database)
+        public CreateAccountOperation(IMediator mediator, AccountOptions accountOptions, PaymentDbContext dbContext)
         {
             _mediator = mediator;
             _accountOptions = accountOptions;
-            _database = database;
+            _dbContext = dbContext;
         }
 
         public async Task<Unit> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
+            var user = _dbContext.Persons.FirstOrDefault(e => e.Cnp == request.OwnerCnp);
+            if (user == null)
+            {
+                throw new Exception("User invalid");
+            }
             var random = new Random();
             
             Account account = new Account();
-            account.AccountID = _database.Accounts.Count() + 1;
+            account.AccountID = _dbContext.Accounts.Count() + 1;
             account.Balance = 0;
             account.Currency = request.Currency;
             account.IbanCode = string.IsNullOrEmpty(request.IbanCode) ? random.Next(1000000).ToString() : request.IbanCode;
@@ -39,9 +47,9 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Status = request.Status;
             account.Type = request.Type;
             account.OwnerCnp = request.OwnerCnp;
-            account.OwnerID = _database.Persons.Count+1;
-            _database.Accounts.Add(account);
-            _database.SaveChange();
+            account.OwnerID = _dbContext.Persons.Count+1;
+            _dbContext.Accounts.Add(account);
+            _dbContext.SaveChange();
 
             AccountCreated eventCreateAccount = new(request.Balance, request.Currency, request.IbanCode, request.Type, request.Status, request.Limit, request.AccountID, request.OwnerCnp);
             await _mediator.Publish(eventCreateAccount, cancellationToken);

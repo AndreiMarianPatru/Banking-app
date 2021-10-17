@@ -16,19 +16,20 @@ namespace PaymentGateway.Application.CommandHandlers
     {
         private readonly IMediator _mediator;
 
-        private readonly Database _database;
+        private readonly PaymentDbContext _dbContext;
 
-        public WithdrawMoneyOperation(IMediator mediator, Database database)
+
+        public WithdrawMoneyOperation(IMediator mediator, PaymentDbContext dbContext)
         {
             _mediator = mediator;
-            _database = database;
+            _dbContext = dbContext;
         }
 
         public async Task<Unit> Handle(WithdrawMoneyCommand request, CancellationToken cancellationToken)
         {
 
 
-            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == request.AccountId);
+            var account = _dbContext.Accounts.FirstOrDefault(x => x.AccountID == request.AccountId);
 
             if (account == null)
             {
@@ -45,11 +46,11 @@ namespace PaymentGateway.Application.CommandHandlers
             transaction.Currency = account.Currency;
             transaction.Date = DateTime.UtcNow;
             transaction.Type = "Normal";
-            _database.Transactions.Add(transaction);
+            _dbContext.Transactions.Add(transaction);
             account.Balance -= transaction.Amount;
 
 
-            _database.SaveChange();
+            _dbContext.SaveChange();
             MoneyWithdrawn eventMoneyDeposited = new(request.AccountId, request.Ammount);
             await _mediator.Publish(eventMoneyDeposited, cancellationToken);
             return Unit.Value;

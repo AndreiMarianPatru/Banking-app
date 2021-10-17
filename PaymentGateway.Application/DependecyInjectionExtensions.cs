@@ -19,10 +19,10 @@ namespace PaymentGateway.Application
             //services.AddTransient<PurchaseProductOperation>();
             //services.AddTransient<CreateProductOperation>();
 
-            services.AddSingleton<Data.Database>();
+            services.AddSingleton<Data.PaymentDbContext>();
 
-           // services.AddTransient<IValidator<Query>, Validator>();
-           
+            // services.AddTransient<IValidator<Query>, Validator>();
+
 
             services.AddSingleton(sp =>
             {

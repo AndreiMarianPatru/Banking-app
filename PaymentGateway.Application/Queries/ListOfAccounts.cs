@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 using MediatR;
-using PaymentGateway.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using PaymentGateway.Data;
 //using static PaymentGateway.Application.Queries.ListOfAccounts.Validator;
 
 namespace PaymentGateway.Application.Queries
@@ -30,13 +30,13 @@ namespace PaymentGateway.Application.Queries
         {
 
 
-            public Validator(Database _database)
+            public Validator(PaymentDbContext _dbContext)
             {
                 RuleFor(q => q).Must(query =>
                 {
                     var person = query.PersonId.HasValue ?
-                    _database.Persons.FirstOrDefault(x => x.PersonID == query.PersonId) :
-                    _database.Persons.FirstOrDefault(x => x.Cnp == query.Cnp);
+                    _dbContext.Persons.FirstOrDefault(x => x.PersonID == query.PersonId) :
+                    _dbContext.Persons.FirstOrDefault(x => x.Cnp == query.Cnp);
 
                     return person != null;
                 }).WithMessage("Customer not found");
@@ -46,7 +46,7 @@ namespace PaymentGateway.Application.Queries
 
         public class Validator2 : AbstractValidator<Query>
         {
-            public Validator2(Database database)
+            public Validator2(PaymentDbContext dbContext)
             {
                 RuleFor(q => q).Must(q =>
                 {
@@ -75,40 +75,72 @@ namespace PaymentGateway.Application.Queries
 
 
         public class QueryHandler : IRequestHandler<Query, List<Model>>
+        {
+            private readonly PaymentDbContext _dbContext;
+
+
+            public QueryHandler(PaymentDbContext dbContext)
             {
-                private readonly Database _database;
+                _dbContext = dbContext;
 
-
-                public QueryHandler(Database database)
-                {
-                    _database = database;
-
-                }
-
-                public Task<List<Model>> Handle(Query request, CancellationToken cancellationToken)
-                {
-
-
-                    var person = request.PersonId.HasValue ?
-                       _database.Persons.FirstOrDefault(x => x.PersonID == request.PersonId) :
-                       _database.Persons.FirstOrDefault(x => x.Cnp == request.Cnp);
-
-                    var db = _database.Accounts.Where(x => x.OwnerCnp == person.Cnp);
-                    var result = db.Select(x => new Model
-                    {
-                        Balance = x.Balance,
-                        Currency = x.Currency,
-                        Iban = x.IbanCode,
-                        Id = x.AccountID,
-                        Limit = x.Limit,
-                        Status = x.Status,
-                        Type = x.Type
-                    }).ToList();
-                    return Task.FromResult(result);
-                }
             }
 
-           
+            public Task<List<Model>> Handle(Query request, CancellationToken cancellationToken)
+            {
+
+
+                var person = request.PersonId.HasValue ?
+                   _dbContext.Persons.FirstOrDefault(x => x.PersonID == request.PersonId) :
+                   _dbContext.Persons.FirstOrDefault(x => x.Cnp == request.Cnp);
+
+                /*
+                 _dbContext.Persons.Where(x => x.Name.Contains("Vasile")); // select * from persons where name like '%Vasile%'
+                 _dbContext.Persons.FirstOrDefault(x => x.Name.Contains("Vasile")); // select top 1 * from persons where name like '%Vasile%'
+                 _database
+                     .Persons
+                     .Where(x => x.Name.Contains("Vasile"))
+                     .Select(x => new { x.Name, x.Cnp })
+                     .ToList(); //  select name, cnp from persons where name like '%Vasile%'
+
+                 _database
+                     .Persons
+                     .Where(x => x.Name.Contains("Vasile"))
+                     .Take(5)
+                     .OrderBy(x=> x.Cnp)
+                     ; // select top 5 * from persons where name like '%Vasile%' order by cnp
+
+                 _database
+                     .Persons
+                     .Where(x => x.Name.Contains("Vasile"))
+                     .Skip(10)
+                     .Take(5)
+                     //.OrderBy(x => x.Cnp)
+                     ; // select * from persons where name like '%Vasile%' limit 5, offset 10 order by cnp -- ia randurile de la 11 la 15 ordonate dupa CNP. 
+
+                 _database
+                     .Persons
+                     .Where(x => x.Name.Contains("Vasile"))
+                     .Skip(10)
+                     .Take(5)
+                     ; // ia randurile de la 11 la 15 ordonate dupa CNP. 
+                 */
+
+                var db = _dbContext.Accounts.Where(x => x.OwnerID == person.PersonID);
+                var result = db.Select(x => new Model
+                {
+                    Balance = x.Balance,
+                    Currency = x.Currency,
+                    Iban = x.IbanCode,
+                    Id = x.AccountID,
+                    Limit = x.Limit,
+                    Status = x.Status,
+                    Type = x.Type
+                }).ToList();
+                return Task.FromResult(result);
+            }
         }
+
+
     }
+}
 

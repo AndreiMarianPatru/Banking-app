@@ -15,17 +15,17 @@ namespace PaymentGateway.Application.CommandHandlers
     public class DepositMoneyOperation : IRequestHandler<DepositMoneyCommand>
     {
         private readonly IMediator _mediator;
-        private readonly Database _database;
-        public DepositMoneyOperation(IMediator mediator, Database database)
+        private readonly PaymentDbContext _dbContext;
+        public DepositMoneyOperation(IMediator mediator, PaymentDbContext dbContext)
         {
             _mediator = mediator;
-            _database = database;
+            _dbContext = dbContext;
         }
 
         public async Task<Unit> Handle(DepositMoneyCommand request, CancellationToken cancellationToken)
         {
 
-            var account = _database.Accounts.FirstOrDefault(x => x.AccountID == request.AccountId);
+            var account = _dbContext.Accounts.FirstOrDefault(x => x.AccountID == request.AccountId);
 
             if (account == null)
             {
@@ -41,7 +41,7 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Balance += transaction.Amount;
 
 
-            _database.SaveChange();
+            _dbContext.SaveChange();
             MoneyDeposited eventMoneyDeposited = new(request.AccountId, request.Ammount);
              await _mediator.Publish(eventMoneyDeposited, cancellationToken);
             return Unit.Value;

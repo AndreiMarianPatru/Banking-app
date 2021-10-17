@@ -18,11 +18,11 @@ namespace PaymentGateway.Application.CommandHandlers
     {
         private readonly IMediator _mediator;
 
-        private readonly Database _database;
-        public EnrollCustomerOperation(IMediator mediator, Database database)
+        private readonly PaymentDbContext _dbContext;
+        public EnrollCustomerOperation(IMediator mediator, PaymentDbContext dbContext)
         {
             _mediator = mediator;
-            _database = database;
+            _dbContext = dbContext;
         }
         public async Task<Unit> Handle(EnrollCustomerCommand request, CancellationToken cancellationToken)
         {
@@ -40,23 +40,23 @@ namespace PaymentGateway.Application.CommandHandlers
                 person.Type = (int)PersonType.Individual;
             else
                 throw new Exception("Unsupported Type");
-            person.PersonID = _database.Persons.Count + 1;
+            person.PersonID = _dbContext.Persons.Count + 1;
 
 
-            _database.Persons.Add(person);
+            _dbContext.Persons.Add(person);
 
             Account account = new Account();
             account.Type = request.AccountType;
             account.Currency = request.Currency;
             account.Balance = 0;
             account.IbanCode = random.Next(1000000).ToString();
-            account.AccountID = _database.Accounts.Count() + 1;
-            account.OwnerCnp = (603208780000 + _database.Accounts.Count).ToString();
+            account.AccountID = _dbContext.Accounts.Count() + 1;
+            account.OwnerCnp = (603208780000 + _dbContext.Accounts.Count).ToString();
             account.OwnerID = person.PersonID;
             account.Status = "Open";
-            _database.Accounts.Add(account);
+            _dbContext.Accounts.Add(account);
 
-            _database.SaveChange();
+            _dbContext.SaveChange();
             CustomerEnrolled eventCustEnroll = new(request.Name, request.Cnp, request.ClientType);
             await _mediator.Publish(eventCustEnroll, cancellationToken);
             return Unit.Value;
