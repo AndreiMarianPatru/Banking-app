@@ -77,4 +77,3 @@ C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bi
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\bin\Debug\net5.0\Scrutor.dll
-C:\Users\Andrei\Desktop\PaymentGateway-main\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\PaymentGateway.WebApi.csproj.CopyComplete

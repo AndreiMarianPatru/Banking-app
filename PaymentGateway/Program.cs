@@ -170,22 +170,22 @@ namespace PaymentGateway
             var query = new Application.Queries.ListOfAccounts.Query
             {
                 PersonId = 1,
-                Cnp = "500118784512"
+                Cnp = "5001187845122"
             };
 
             var result = await mediator.Send(query, cancellationToken);
 
-            List<int> ana= new List<int>();
-            foreach(var myitem in database.Accounts)
-            {
-                ana.Add(myitem.OwnerID);
-                Console.WriteLine(myitem.OwnerID);
-            }
+            //List<int> ana= new List<int>();
+            //foreach(var myitem in database.Accounts)
+            //{
+            //    ana.Add(myitem.OwnerID);
+            //    Console.WriteLine(myitem.OwnerID);
+            //}
 
-            if (ana.Count != ana.Distinct().Count())
-            {
-                Console.WriteLine("duplicates in ");
-            }
+            //if (ana.Count != ana.Distinct().Count())
+            //{
+            //    Console.WriteLine("duplicates in ");
+            //}
 
         }
     }
