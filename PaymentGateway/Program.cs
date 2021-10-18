@@ -130,14 +130,14 @@ namespace PaymentGateway
             }
 
             DepositMoneyCommand deposit1 = new DepositMoneyCommand();
-            deposit1.AccountId = 209;
+            deposit1.AccountId = 4045;
             deposit1.Amount = 1000;
             
             await mediator.Send(deposit1, cancellationToken);
 
 
             WithdrawMoneyCommand withdraw1 = new WithdrawMoneyCommand();
-            withdraw1.AccountId = 209;
+            withdraw1.AccountId = 4045;
             withdraw1.amount = 100;
             
             await mediator.Send(withdraw1, cancellationToken);
@@ -155,12 +155,12 @@ namespace PaymentGateway
             MultiplePurchaseCommand purchase1 = new MultiplePurchaseCommand();
             var items = new List<CommandDetails>();
             var item = new CommandDetails();
-            item.ProductId = 1;
+            item.ProductId = 14;
             item.Quantity = 2;
             items.Add(item);
             purchase1.Details = items;
             PurchaseProductCommand purchase2 = new PurchaseProductCommand();
-            purchase2.IdAccount = 209;
+            purchase2.IdAccount = 4045;
             purchase2.Command = purchase1;
             purchase2.Currency = "RON";
             purchase2.Name = "pc";
@@ -172,8 +172,8 @@ namespace PaymentGateway
 
             var query = new Application.Queries.ListOfAccounts.Query
             {
-                PersonId = 1,
-                Cnp = "5001187845122"
+                PersonId = 2122,
+                Cnp = "5000118780000"
             };
 
             var result = await mediator.Send(query, cancellationToken);

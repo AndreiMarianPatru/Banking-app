@@ -235,3 +235,4 @@ C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway\obj\Debug\net5
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway\obj\Debug\net5.0\ref\PaymentGateway.dll
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.pdb
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.genruntimeconfig.cache
+C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway\obj\Debug\net5.0\PaymentGateway.csproj.CopyComplete

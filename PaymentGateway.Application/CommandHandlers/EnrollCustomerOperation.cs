@@ -27,13 +27,13 @@ namespace PaymentGateway.Application.CommandHandlers
         public async Task<Unit> Handle(EnrollCustomerCommand request, CancellationToken cancellationToken)
         {
 
-            //var Database = new Database();
+        
             var random = new Random();
           
             Person person = new Person();
             person.Cnp = request.Cnp;
             person.Name = request.Name;
-            //person.Type = operation.ClientType;
+            
             if (request.ClientType == "Company")
                 person.Type = (int)PersonType.Company;
             else if (request.ClientType == "Individual")
@@ -44,6 +44,7 @@ namespace PaymentGateway.Application.CommandHandlers
 
 
             _dbContext.Persons.Add(person);
+            _dbContext.SaveChanges();
 
             Account account = new Account();
             account.Type = request.AccountType;
@@ -51,9 +52,10 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Balance = 0;
             account.IbanCode = random.Next(1000000).ToString();
             //account.AccountId = _dbContext.Accounts.Count() + 1;
-            account.OwnerCnp = (603208780000 + _dbContext.Accounts.Count()).ToString();
-            //account.OwnerId = person.PersonId;
+            account.OwnerCnp = person.Cnp;
+            account.OwnerId = person.PersonId;
             account.Status = 1;
+            account.Limit = 10000;
             _dbContext.Accounts.Add(account);
 
             _dbContext.SaveChanges();
