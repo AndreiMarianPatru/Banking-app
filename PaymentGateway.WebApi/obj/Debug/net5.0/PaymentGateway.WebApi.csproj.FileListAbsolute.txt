@@ -176,4 +176,3 @@ C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.WebApi\obj\Deb
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\ref\PaymentGateway.WebApi.dll
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\PaymentGateway.WebApi.pdb
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\PaymentGateway.WebApi.genruntimeconfig.cache
-C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.WebApi\obj\Debug\net5.0\PaymentGateway.WebApi.csproj.CopyComplete

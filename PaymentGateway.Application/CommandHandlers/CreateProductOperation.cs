@@ -30,7 +30,7 @@ namespace PaymentGateway.Application.CommandHandlers
             var random = new Random();
             
             Product product = new Product();
-            product.Id = _dbContext.Products.Count() + 1;
+            //product.Id = _dbContext.Products.Count() + 1;
             product.Currency = request.Currency;
             product.Limit = request.Limit;
             product.Name = request.Name;

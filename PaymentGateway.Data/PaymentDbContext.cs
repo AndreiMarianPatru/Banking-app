@@ -95,7 +95,7 @@ namespace PaymentGateway.Data
 
             modelBuilder.Entity<ProductXtransaction>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(x=> new { x.IdProduct, x.IdTransaction});
 
                 entity.ToTable("ProductXTransactions");
 

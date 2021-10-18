@@ -40,7 +40,7 @@ namespace PaymentGateway.Application.CommandHandlers
                 person.Type = (int)PersonType.Individual;
             else
                 throw new Exception("Unsupported Type");
-            person.PersonId = _dbContext.Persons.Count() + 1;
+            //person.PersonId = _dbContext.Persons.Count() + 1;
 
 
             _dbContext.Persons.Add(person);
@@ -50,9 +50,9 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Currency = request.Currency;
             account.Balance = 0;
             account.IbanCode = random.Next(1000000).ToString();
-            account.AccountId = _dbContext.Accounts.Count() + 1;
+            //account.AccountId = _dbContext.Accounts.Count() + 1;
             account.OwnerCnp = (603208780000 + _dbContext.Accounts.Count()).ToString();
-            account.OwnerId = person.PersonId;
+            //account.OwnerId = person.PersonId;
             account.Status = 1;
             _dbContext.Accounts.Add(account);
 

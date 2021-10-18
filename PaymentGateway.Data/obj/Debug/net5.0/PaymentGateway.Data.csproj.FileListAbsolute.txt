@@ -54,7 +54,6 @@ C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.Data\obj\Debug
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.AssemblyInfoInputs.cache
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.AssemblyInfo.cs
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.csproj.CoreCompileInputs.cache
-C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.csproj.CopyComplete
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.dll
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\ref\PaymentGateway.Data.dll
 C:\Users\andrei.patru\Documents\GitHub\Banking-app\PaymentGateway.Data\obj\Debug\net5.0\PaymentGateway.Data.pdb
