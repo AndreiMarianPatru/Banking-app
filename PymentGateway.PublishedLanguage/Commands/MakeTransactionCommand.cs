@@ -9,6 +9,6 @@ namespace PaymentGateway.PublishedLanguage.Commands
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public string Currency { get; set; }
-        public string Type { get; set; }
+        public int Type { get; set; }
     }
 }

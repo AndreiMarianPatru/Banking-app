@@ -1,36 +1,28 @@
-﻿namespace PaymentGateway.Models
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace PaymentGateway.Models
 {
-    public class Account
+    public partial class Account
     {
-        public decimal Balance { get; set; }
-        public string Currency { get; set; }
-        public string IbanCode { get; set; }
-        public string Type { get; set; }
-        public string Status { get; set; }
-        public decimal Limit { get; set; }
-        public int AccountID { get; set; }
-        public int OwnerID { get; set; }
-
-        public string OwnerCnp { get; set; }
-    
-
-        public Account(decimal balance, string currency, string ibanCode, string type, string status, decimal limit, int id, string ownerCnp,int ownerID)
-        {
-            Balance = balance;
-            Currency = currency;
-            IbanCode = ibanCode;
-            Limit = limit;
-            Status = status;
-            Type = type;
-            AccountID = id;
-            OwnerCnp = ownerCnp;
-            OwnerID = ownerID;
-           
-        }
         public Account()
         {
-
-
+            Transactions = new HashSet<Transaction>();
         }
+
+        public int AccountId { get; set; }
+        public double Balance { get; set; }
+        public string Currency { get; set; }
+        public string IbanCode { get; set; }
+        public int Type { get; set; }
+        public int Status { get; set; }
+        public decimal? Limit { get; set; }
+        public string? OwnerCnp { get; set; }
+        public int? OwnerId { get; set; }
+
+        public virtual Person Owner { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

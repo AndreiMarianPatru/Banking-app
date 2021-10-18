@@ -24,7 +24,7 @@ namespace PaymentGateway.Application.CommandHandlers
         public async Task<Unit> Handle(MakeTransactionCommand request, CancellationToken cancellationToken)
         {
             Transaction transaction = new Transaction();
-            transaction.Amount = request.Amount;
+            transaction.Amount = (double)request.Amount;
             transaction.Currency = request.Currency;
             transaction.Date = request.Date;
             transaction.Type = request.Type;

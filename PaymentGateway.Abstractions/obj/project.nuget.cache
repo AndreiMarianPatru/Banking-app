@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P5XchpmJcoT2MWfIABtiClAEuumYvLqU+vBqhj3/nfYhSCsZhxZB3gcT2ldN2+AcfHlYOHK/FNTa2Mc0pWgXrA==",
+  "dgSpecHash": "ooxSM+n/jsyIjWChnKyhKpmmI+gUGonh2fVRUSBL/lYmQXPcfDEJk/ByoMzF9RfVpFC843dLhDhSDAHomjjvlA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj",
+  "projectFilePath": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Abstractions\\PaymentGateway.Abstractions.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

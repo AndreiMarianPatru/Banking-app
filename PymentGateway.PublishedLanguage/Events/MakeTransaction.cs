@@ -9,6 +9,7 @@ namespace PaymentGateway.PublishedLanguage.Events
         public DateTime Date { get; set; }
         public string Currency { get; set; }
         public string Type { get; set; }
+        public int Type1 { get; }
 
         public MakeTransaction(decimal amount, DateTime date, string currency, string type)
         {
@@ -16,6 +17,14 @@ namespace PaymentGateway.PublishedLanguage.Events
             this.Date = date;
             this.Currency = currency;
             this.Type = type;
+        }
+
+        public MakeTransaction(decimal amount, DateTime date, string currency, int type)
+        {
+            Amount = amount;
+            Date = date;
+            Currency = currency;
+            Type1 = type;
         }
     }
 }

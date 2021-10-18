@@ -14,12 +14,12 @@ namespace PaymentGateway.Application.Queries
         public class Model
         {
             public int Id { get; set; }
-            public decimal Balance { get; set; }
+            public double Balance { get; set; }
             public string Currency { get; set; }
             public string Iban { get; set; }
-            public string Status { get; set; }
-            public decimal Limit { get; set; }
-            public string Type { get; set; }
+            public int Status { get; set; }
+            public decimal? Limit { get; set; }
+            public int Type { get; set; }
         }
         public class Query : IRequest<List<Model>>
         {
@@ -35,7 +35,7 @@ namespace PaymentGateway.Application.Queries
                 RuleFor(q => q).Must(query =>
                 {
                     var person = query.PersonId.HasValue ?
-                    _dbContext.Persons.FirstOrDefault(x => x.PersonID == query.PersonId) :
+                    _dbContext.Persons.FirstOrDefault(x => x.PersonId == query.PersonId) :
                     _dbContext.Persons.FirstOrDefault(x => x.Cnp == query.Cnp);
 
                     return person != null;
@@ -90,7 +90,7 @@ namespace PaymentGateway.Application.Queries
 
 
                 var person = request.PersonId.HasValue ?
-                   _dbContext.Persons.FirstOrDefault(x => x.PersonID == request.PersonId) :
+                   _dbContext.Persons.FirstOrDefault(x => x.PersonId == request.PersonId) :
                    _dbContext.Persons.FirstOrDefault(x => x.Cnp == request.Cnp);
 
                 /*
@@ -125,13 +125,13 @@ namespace PaymentGateway.Application.Queries
                      ; // ia randurile de la 11 la 15 ordonate dupa CNP. 
                  */
 
-                var db = _dbContext.Accounts.Where(x => x.OwnerID == person.PersonID);
+                var db = _dbContext.Accounts.Where(x => x.OwnerId == person.PersonId);
                 var result = db.Select(x => new Model
                 {
                     Balance = x.Balance,
                     Currency = x.Currency,
                     Iban = x.IbanCode,
-                    Id = x.AccountID,
+                    Id = x.AccountId,
                     Limit = x.Limit,
                     Status = x.Status,
                     Type = x.Type

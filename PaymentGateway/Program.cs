@@ -74,13 +74,13 @@ namespace PaymentGateway
                 {
                     customer.Currency = "RON";
                     customer.ClientType = "Individual";
-                    customer.AccountType = "Debit";
+                    customer.AccountType = 2;
                 }
                 else
                 {
                     customer.Currency = "EUR";
                     customer.ClientType = "Company";
-                    customer.AccountType = "Credit";
+                    customer.AccountType = 1;
                 }
                 customer.Cnp = (5000118780000 + i).ToString();
                 
@@ -110,15 +110,15 @@ namespace PaymentGateway
                 if (i % 2 == 0)
                 {
                     customer.Currency = "RON";
-                    customer.Type = "Individual";
-                    customer.Status = "Open";
+                    customer.Type = 1;
+                    customer.Status = 2;
                     customer.Limit = 1000000;
                 }
                 else
                 {
                     customer.Currency = "EUR";
-                    customer.Type = "Company";
-                    customer.Status = "Closed";
+                    customer.Type = 1;
+                    customer.Status = 2;
                     customer.Limit = 1000000000;
                 }
                 customer.AccountID = i;

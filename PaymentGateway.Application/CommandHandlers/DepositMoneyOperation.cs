@@ -25,7 +25,7 @@ namespace PaymentGateway.Application.CommandHandlers
         public async Task<Unit> Handle(DepositMoneyCommand request, CancellationToken cancellationToken)
         {
 
-            var account = _dbContext.Accounts.FirstOrDefault(x => x.AccountID == request.AccountId);
+            var account = _dbContext.Accounts.FirstOrDefault(x => x.AccountId == request.AccountId);
 
             if (account == null)
             {
@@ -34,10 +34,10 @@ namespace PaymentGateway.Application.CommandHandlers
 
 
             var transaction = new Transaction();
-            transaction.Amount = request.Amount;
+            transaction.Amount = (double)request.Amount;
             transaction.Currency = account.Currency;
             transaction.Date = DateTime.UtcNow;
-            transaction.Type = "Normal";
+            transaction.Type = 1;
             account.Balance += transaction.Amount;
 
 

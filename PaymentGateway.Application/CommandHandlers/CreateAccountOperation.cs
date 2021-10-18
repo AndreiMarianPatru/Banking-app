@@ -36,7 +36,7 @@ namespace PaymentGateway.Application.CommandHandlers
             var random = new Random();
             
             Account account = new Account();
-            account.AccountID = _dbContext.Accounts.Count() + 1;
+            account.AccountId = _dbContext.Accounts.Count() + 1;
             account.Balance = 0;
             account.Currency = request.Currency;
             account.IbanCode = string.IsNullOrEmpty(request.IbanCode) ? random.Next(1000000).ToString() : request.IbanCode;
@@ -44,7 +44,7 @@ namespace PaymentGateway.Application.CommandHandlers
             account.Status = request.Status;
             account.Type = request.Type;
             account.OwnerCnp = request.OwnerCnp;
-            account.OwnerID = _dbContext.Persons.Count();
+            account.OwnerId = _dbContext.Persons.Count();
             _dbContext.Accounts.Add(account);
             _dbContext.SaveChanges();
 

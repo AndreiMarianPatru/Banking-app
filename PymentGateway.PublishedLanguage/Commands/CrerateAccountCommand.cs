@@ -7,11 +7,11 @@ namespace PaymentGateway.PublishedLanguage.Commands
         public double Balance { get; set; }
         public string Currency { get; set; }
         public string IbanCode { get; set; }
-        public string Type { get; set; }
-        public string Status { get; set; }
-        public decimal Limit { get; set; }
-        public int AccountID { get; set; }
-        public string OwnerCnp { get; set; }
+        public int Type { get; set; }
+        public int Status { get; set; }
+        public decimal? Limit { get; set; }
+        public int? AccountID { get; set; }
+        public string? OwnerCnp { get; set; }
 
 
 

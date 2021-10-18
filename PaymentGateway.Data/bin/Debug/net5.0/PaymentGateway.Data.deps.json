@@ -1041,6 +1041,9 @@
         }
       },
       "PaymentGateway.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
+        },
         "runtime": {
           "PaymentGateway.Models.dll": {}
         }

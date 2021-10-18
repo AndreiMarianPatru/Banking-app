@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kjCUrDAKthvIeEyG1/ZVh+trgd2KxMw+S8EnazbRxXKcoVbpPyyrR0RQZ8mq823aWijz5gmmyi25CyEPiOoSog==",
+  "dgSpecHash": "au0z8WqUH+G8izebYhLdrULbc7mC4Chs+3N0IgTXRoSuz99Lu9kKcLwj4ksan8M85KkPoJah7KR2zj4R0ZEeUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.ExternalService\\PaymentGateway.ExternalService.csproj",
+  "projectFilePath": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.ExternalService\\PaymentGateway.ExternalService.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Andrei\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
+    "C:\\Users\\andrei.patru\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
   ],
   "logs": []
 }

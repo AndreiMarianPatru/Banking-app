@@ -1,12 +1,16 @@
-﻿namespace PaymentGateway.Models
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace PaymentGateway.Models
 {
-    public class Product
+    public partial class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Value { get; set; }
+        public double Value { get; set; }
         public string Currency { get; set; }
-        public decimal Limit { get; set; }
-
+        public double Limit { get; set; }
     }
 }

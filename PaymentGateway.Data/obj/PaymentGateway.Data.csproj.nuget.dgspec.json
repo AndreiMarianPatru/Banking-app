@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj": {}
+    "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj": {
+    "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj",
+        "projectUniqueName": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj",
         "projectName": "PaymentGateway.Data",
-        "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj",
-        "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Data\\obj\\",
+        "projectPath": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Data\\PaymentGateway.Data.csproj",
+        "packagesPath": "C:\\Users\\andrei.patru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\NuGet.Config",
-          "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\NuGet.Config",
+          "C:\\Users\\andrei.patru\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -35,8 +35,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj": {
-                "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj"
+              "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj": {
+                "projectPath": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj"
               }
             }
           }
@@ -71,26 +71,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj": {
+    "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj",
+        "projectUniqueName": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj",
         "projectName": "PaymentGateway.Models",
-        "projectPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj",
-        "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\PaymentGateway.Models\\obj\\",
+        "projectPath": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Models\\PaymentGateway.Models.csproj",
+        "packagesPath": "C:\\Users\\andrei.patru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\PaymentGateway.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Andrei\\Desktop\\PaymentGateway-main\\Banking-app\\NuGet.Config",
-          "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andrei.patru\\Documents\\GitHub\\Banking-app\\NuGet.Config",
+          "C:\\Users\\andrei.patru\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -117,6 +117,18 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -132,7 +144,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -29,7 +29,7 @@ namespace PaymentGateway.Application.CommandHandlers
         {
 
 
-            var account = _dbContext.Accounts.FirstOrDefault(x => x.AccountID == request.AccountId);
+            var account = _dbContext.Accounts.FirstOrDefault(x => x.AccountId == request.AccountId);
 
             if (account == null)
             {
@@ -45,7 +45,7 @@ namespace PaymentGateway.Application.CommandHandlers
             transaction.Amount = request.amount;
             transaction.Currency = account.Currency;
             transaction.Date = DateTime.UtcNow;
-            transaction.Type = "Normal";
+            transaction.Type = 1;
             _dbContext.Transactions.Add(transaction);
             account.Balance -= transaction.Amount;
 
